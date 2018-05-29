@@ -5,6 +5,8 @@
  */
 package createaccount;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author prasanth
@@ -15,7 +17,19 @@ public class Login_form extends javax.swing.JFrame {
      * Creates new form Login_form
      */
     public Login_form() {
+        
+        this.setUndecorated(false);
+        this.setAlwaysOnTop(true);
+        this.setResizable(false);
+        
         initComponents();
+        
+        Toolkit ObjTk = Toolkit.getDefaultToolkit();
+        
+        int xSize = (int)ObjTk.getScreenSize().getWidth();
+        int ySize = (int)ObjTk.getScreenSize().getHeight();
+        
+        this.setSize(xSize,ySize);
     }
 
     /**
@@ -33,11 +47,11 @@ public class Login_form extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 796, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 543, Short.MAX_VALUE)
         );
 
         pack();
