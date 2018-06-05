@@ -81,10 +81,11 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jLabel3)))
                 .addGap(26, 26, 26))
         );
 
@@ -95,8 +96,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("FACE STORE");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(330, 0, 369, 90);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\prasanth\\Desktop\\Interectice Project\\Face.jpg")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1000, 540);
 
