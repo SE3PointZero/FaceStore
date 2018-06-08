@@ -56,7 +56,7 @@ public class Welcome extends javax.swing.JFrame {
         getContentPane().add(jButton4);
         jButton4.setBounds(690, 390, 129, 43);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\prasanth\\Desktop\\Interectice Project\\WelcomePage.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/createaccount/image/WelcomePage.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1000, 540);
 

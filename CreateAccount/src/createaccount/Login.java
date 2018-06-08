@@ -96,6 +96,8 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("FACE STORE");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(330, 0, 369, 90);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/createaccount/image/Face.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1000, 540);
 
