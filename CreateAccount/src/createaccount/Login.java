@@ -2,8 +2,7 @@ package createaccount;
 
 public class Login extends javax.swing.JFrame {
 
-    public Login() {
-        
+    public Login() {  
         initComponents();
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
