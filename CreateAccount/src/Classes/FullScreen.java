@@ -32,5 +32,7 @@ public class FullScreen {
         
         setWidth((int) tk.getScreenSize().getWidth());
         setHeight((int) tk.getScreenSize().getHeight());
+        
+        //this.setSize(objFull.getHeight(), objFull.getWidth());
     }
 }
