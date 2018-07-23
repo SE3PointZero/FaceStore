@@ -5,6 +5,9 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         
         initComponents();
+        Classes.FullScreen objFull = new Classes.FullScreen();
+        objFull.SetResolution();
+        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -92,7 +95,11 @@ public class Login extends javax.swing.JFrame {
  
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                Login objLogin = new Login();
+                objLogin.setVisible(true);
+                objLogin.setAlwaysOnTop(true);
+                objLogin.setResizable(false);
+                //new Login().setVisible(true);
             }
         });
     }
