@@ -60,6 +60,11 @@ public class PasswordChanging extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(720, 450, 110, 35);
 
@@ -69,6 +74,10 @@ public class PasswordChanging extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
 

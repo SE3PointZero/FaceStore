@@ -1,5 +1,7 @@
 package createaccount;
 
+import javax.swing.JOptionPane;
+
 public class Welcome extends javax.swing.JFrame {
 
     public Welcome() {
@@ -88,7 +90,12 @@ public class Welcome extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        System.exit(0);
+        //int decision = JOptionPane.showConfirmDialog(null,"Do you want to logout?", "Logout",JOptionPane.OK_CANCEL_OPTION);
+        /*if(decision == 0){
+            this.dispose();
+        }else{
+            System.exit(0);
+        }*/
     }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
