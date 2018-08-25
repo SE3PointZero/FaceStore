@@ -91,6 +91,11 @@ public class customer_form extends javax.swing.JFrame  {
         btnCapture.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btnCapture.setText("CAPTURE");
         btnCapture.setName("Capture"); // NOI18N
+        btnCapture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaptureActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnCapture, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 650, -1, -1));
 
         btnSave.setBackground(new java.awt.Color(255, 255, 255));
@@ -204,6 +209,11 @@ public class customer_form extends javax.swing.JFrame  {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
+        VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
+        objSnapShot.TakeSnapShot();
+    }//GEN-LAST:event_btnCaptureActionPerformed
 
     public static void main(String args[]) {
 
