@@ -1,5 +1,7 @@
 package createaccount;
 
+import javax.swing.JOptionPane;
+
 public class customer_form extends javax.swing.JFrame  {
 
     public customer_form() {
@@ -85,6 +87,11 @@ public class customer_form extends javax.swing.JFrame  {
         btnCancel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btnCancel.setText("CANCEL");
         btnCancel.setName("Cancel"); // NOI18N
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 650, -1, -1));
 
         btnCapture.setBackground(new java.awt.Color(255, 255, 255));
@@ -214,6 +221,10 @@ public class customer_form extends javax.swing.JFrame  {
         VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
         objSnapShot.TakeSnapShot();
     }//GEN-LAST:event_btnCaptureActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+       // int decide = JOptionPane.showConfirmDialog(null,"Do You want to cancel?");
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     public static void main(String args[]) {
 

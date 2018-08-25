@@ -43,6 +43,11 @@ public class FaceRecognition extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jButton3.setText("Home");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,6 +85,12 @@ public class FaceRecognition extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        Welcome objWelcome = new Welcome();
+        objWelcome.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
 

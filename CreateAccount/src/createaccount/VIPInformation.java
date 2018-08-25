@@ -1,5 +1,7 @@
 package createaccount;
 
+import javax.swing.JOptionPane;
+
 public class VIPInformation extends javax.swing.JFrame {
 
     public VIPInformation() {
@@ -226,7 +228,10 @@ public class VIPInformation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        
+//        JOptionPane.showMessageDialog(null, "We warmly welcome you to our Topaz Beach Hotel. Have a nice meal day!");
+//        this.setVisible(false);
+//        Welcome objWelcome = new Welcome();
+//        objWelcome.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed
 
     public static void main(String args[]) {

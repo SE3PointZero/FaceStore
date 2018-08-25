@@ -156,6 +156,11 @@ public class Updates extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jButton1.setText("Home");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -249,6 +254,12 @@ public class Updates extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        Welcome objWelcome = new Welcome();
+        objWelcome.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
 
