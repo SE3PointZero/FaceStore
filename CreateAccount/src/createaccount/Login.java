@@ -7,6 +7,7 @@ public class Login extends javax.swing.JFrame {
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
         this.setSize(objFull.getWidth(),objFull.getHeight());
+
     }
 
     @SuppressWarnings("unchecked")
