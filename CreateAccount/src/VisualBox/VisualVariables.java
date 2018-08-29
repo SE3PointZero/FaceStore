@@ -8,12 +8,12 @@ import org.opencv.objdetect.CascadeClassifier;
 
 public class VisualVariables {
     
-    private DaemonThread myThread = null;
+    DaemonThread myThread = null;
     int count = 0;
     VideoCapture webSource = null;
     Mat frame = new Mat();
     MatOfByte mem = new MatOfByte();
     CascadeClassifier faceDetector = new CascadeClassifier(VisualVariables.class.getResource("haarcascade_frontalface_alt.xml").getPath().substring(1));
     MatOfRect faceDetections = new MatOfRect();
-    
+ 
 }

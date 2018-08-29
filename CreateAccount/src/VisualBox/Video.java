@@ -4,10 +4,15 @@ import org.opencv.videoio.VideoCapture;
 
 public class Video {
     
-//    webSource = new VideoCapture(0);
-//    myThread = new DaemonThread();
-//    Thread t = new Thread(myThread);
-//    t.setDaemon(true);
-//    myThread.runnable = true;
-//    t.start();
+    VisualVariables variable = new VisualVariables();
+    protected volatile boolean runnable = false;
+    
+    public void RunVideo(){
+        variable.webSource = new VideoCapture(0);
+        variable.myThread = new DaemonThread();
+        Thread t = new Thread((Runnable) variable.myThread);
+        t.setDaemon(true);
+        variable.myThread.runnable = true;
+        t.start();
+    } 
 }

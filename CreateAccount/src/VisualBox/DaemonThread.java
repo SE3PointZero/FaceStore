@@ -1,7 +1,7 @@
 package VisualBox;
 
-public class DaemonThread {
+public class DaemonThread implements runnable{
     
     VideoRun videoRun = new VideoRun();
-    
+    boolean runnable;    
 }

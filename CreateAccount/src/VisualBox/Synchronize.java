@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
@@ -23,7 +24,7 @@ public class Synchronize {
                     if(variable.webSource.grab()){
                         try{
                             variable.webSource.retrieve(variable.frame);
-                            //Graphics g = jPanel1.getGraphics();
+                            //Graphics g = p.getGraphics();
                             variable.faceDetector.detectMultiScale(variable.frame, variable.faceDetections);
                             
                             for(Rect rect : variable.faceDetections.toArray()){
@@ -33,7 +34,7 @@ public class Synchronize {
                             Imgcodecs.imencode(".bmp", variable.frame, variable.mem);
                             Image im = ImageIO.read(new ByteArrayInputStream(variable.mem.toArray()));
                             BufferedImage buff = (BufferedImage) im;
-                            
+//                            
 //                            if(g.drawImage(buff, 0, 0, getWidth(), getHeight() - 150, 0, 0, buff.getWidth(), buff.getHeight(), null)){
 //                                if(runnable == false){
 //                                    System.out.println("Paused .......");
