@@ -8,7 +8,7 @@ import org.opencv.objdetect.CascadeClassifier;
 
 public class VisualVariables {
     
-    //private DaemonThread myThread = null;
+    private DaemonThread myThread = null;
     int count = 0;
     VideoCapture webSource = null;
     Mat frame = new Mat();
