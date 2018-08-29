@@ -13,29 +13,40 @@ import org.opencv.imgproc.Imgproc;
 
 public class Synchronize {
     
+    protected volatile boolean runnable = false; 
+    
+    VisualVariables variable = new VisualVariables();
+    
     public void ChangeOver(){
-//        while(runnable){
-//                    if(webSource.grab()){
-//                        try{
-//                            webSource.retrieve(frame);
-//                            Graphics g = jPanel1.getGraphics();
-//                            faceDetector.detectMultiScale(frame, faceDetections);
-//                            for(Rect rect : faceDetections.toArray()){
-//                                Imgproc.rectangle(frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));   
-//                            }
-//                            Imgcodecs.imencode(".bmp", frame, mem);
-//                            Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
-//                            BufferedImage buff = (BufferedImage) im;
+        
+        while(runnable){
+                    if(variable.webSource.grab()){
+                        try{
+                            variable.webSource.retrieve(variable.frame);
+                            //Graphics g = jPanel1.getGraphics();
+                            variable.faceDetector.detectMultiScale(variable.frame, variable.faceDetections);
+                            
+                            for(Rect rect : variable.faceDetections.toArray()){
+                                Imgproc.rectangle(variable.frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));   
+                            }
+                            
+                            Imgcodecs.imencode(".bmp", variable.frame, variable.mem);
+                            Image im = ImageIO.read(new ByteArrayInputStream(variable.mem.toArray()));
+                            BufferedImage buff = (BufferedImage) im;
+                            
 //                            if(g.drawImage(buff, 0, 0, getWidth(), getHeight() - 150, 0, 0, buff.getWidth(), buff.getHeight(), null)){
 //                                if(runnable == false){
 //                                    System.out.println("Paused .......");
 //                                    this.wait();
 //                                }
 //                            }
-//                        }catch(Exception ex){
-//                            System.out.println("Error");
-//                        }
-//                    }
+                        }catch(Exception ex){
+                            System.out.println("Error");
+                        }
+                    }
         }
-    }  
+    }
+}
+    
+    
 
