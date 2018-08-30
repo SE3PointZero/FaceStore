@@ -6,9 +6,9 @@ public class VIPInformation extends javax.swing.JFrame {
 
     public VIPInformation() {
         initComponents();
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -240,8 +240,8 @@ public class VIPInformation extends javax.swing.JFrame {
             public void run() {
                 VIPInformation objVIPInfo = new VIPInformation();
                 objVIPInfo.setVisible(true);
-                objVIPInfo.setAlwaysOnTop(true);
-                objVIPInfo.setResizable(false);
+//                objVIPInfo.setAlwaysOnTop(true);
+//                objVIPInfo.setResizable(false);
             }
         });
     }

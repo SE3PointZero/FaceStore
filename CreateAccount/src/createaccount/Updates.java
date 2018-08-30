@@ -4,9 +4,9 @@ public class Updates extends javax.swing.JFrame {
 
     public Updates() {
         initComponents();
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -267,8 +267,8 @@ public class Updates extends javax.swing.JFrame {
             public void run() {
                 Updates objUpdate = new Updates();
                 objUpdate.setVisible(true);
-                objUpdate.setAlwaysOnTop(true);
-                objUpdate.setResizable(false);
+//                objUpdate.setAlwaysOnTop(true);
+//                objUpdate.setResizable(false);
             }
         });
     }

@@ -6,9 +6,9 @@ public class Welcome extends javax.swing.JFrame {
 
     public Welcome() {
         initComponents();
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -104,8 +104,8 @@ public class Welcome extends javax.swing.JFrame {
             public void run() {
                 Welcome objWelcome = new Welcome();
                 objWelcome.setVisible(true);
-                objWelcome.setAlwaysOnTop(true);
-                objWelcome.setResizable(false);
+//                objWelcome.setAlwaysOnTop(true);
+//                objWelcome.setResizable(false);
             }
         });
     }

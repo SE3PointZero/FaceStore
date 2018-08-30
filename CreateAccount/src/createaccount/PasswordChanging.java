@@ -4,9 +4,9 @@ public class PasswordChanging extends javax.swing.JFrame {
 
     public PasswordChanging() {
         initComponents();
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -85,8 +85,8 @@ public class PasswordChanging extends javax.swing.JFrame {
             public void run() {
                 PasswordChanging objPassword = new PasswordChanging();
                 objPassword.setVisible(true);
-                objPassword.setAlwaysOnTop(true);
-                objPassword.setResizable(false);
+//                objPassword.setAlwaysOnTop(true);
+//                objPassword.setResizable(false);
             }
         });
     }

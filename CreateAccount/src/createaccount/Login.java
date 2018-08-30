@@ -4,9 +4,9 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {  
         initComponents();
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
 
     }
 
@@ -108,8 +108,8 @@ public class Login extends javax.swing.JFrame {
             public void run() {
                 Login objLogin = new Login();
                 objLogin.setVisible(true);
-                objLogin.setAlwaysOnTop(true);
-                objLogin.setResizable(false);
+//                objLogin.setAlwaysOnTop(true);
+//                objLogin.setResizable(false);
             }
         });
     }

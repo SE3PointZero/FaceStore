@@ -12,8 +12,6 @@ import org.opencv.core.MatOfRect;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
-import org.opencv.core.Size;
-import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.imgproc.Imgproc;
@@ -28,24 +26,24 @@ public class FaceRecognition extends javax.swing.JFrame {
     MatOfByte mem = new MatOfByte();
     CascadeClassifier faceDetector = new CascadeClassifier(FaceRecognition.class.getResource("haarcascade_frontalface_alt.xml").getPath().substring(1));
     MatOfRect faceDetections = new MatOfRect();
-
+    
+    VisualBox.Video video = new VisualBox.Video();
+    
     public FaceRecognition() {
         
         initComponents();
         camera();
 
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
-
-        //Classes.Visual visual = new Classes.Visual();
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
         
     }
-
+ 
      class DaemonThread implements Runnable{
         
         protected volatile boolean runnable = false;
-
+        
         @Override
         public void run(){
             synchronized (this){
@@ -96,6 +94,7 @@ public class FaceRecognition extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(0, 720));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -178,8 +177,9 @@ public class FaceRecognition extends javax.swing.JFrame {
                 FaceRecognition objFRecog = new FaceRecognition();
                 
                 objFRecog.setVisible(true);
-                objFRecog.setAlwaysOnTop(true);
-                objFRecog.setResizable(false);
+//                objFRecog.setAlwaysOnTop(true);
+ //               objFRecog.setResizable(false);
+                objFRecog.setSize(1120, 800);
 
             }
         });
