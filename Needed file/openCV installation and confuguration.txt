@@ -1,0 +1,17 @@
+First visit the following link and download and install openCV on your pc
+	https://sourceforge.net/projects/opencvlibrary/
+
+Secondly open the project via NetBeans IDE and right click on libraries and select Add Jar/Folder and do the following steps
+	Go to the installation directory -> build -> java -> select opencv
+
+Now go back to your project in NetBeans IDE and do the following steps
+	Right click on the project name -> Select Properties (Last option) -> Select Run -> At the VM Options box type the following ->
+		-Djava.library.path="Your installation path"
+		For example:	 -Djava.library.path="C:\New folder\opencv\build\java\x64"
+
+	Note: *Please remember to put a dash mark at the beginning
+	         *Path should be in between the Quatation Mark ( "  " )
+
+Finally click ok.
+
+----------------------------------------------------------FROM THE TEAM SE 3.0----------------------------------------------------------
