@@ -15,6 +15,7 @@ public class SnapShot {
             System.out.println("Error");
         }else{
             Mat frame = new Mat();
+            
             while(true){
                 if(camera.read(frame)){
                     System.out.println("Frame obtained");
