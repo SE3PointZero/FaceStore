@@ -1,6 +1,5 @@
 package createaccount;
 
-import org.opencv.core.Core;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -31,12 +30,14 @@ public class FaceRecognition extends javax.swing.JFrame {
     MatOfRect faceDetections = new MatOfRect();
 
     public FaceRecognition() {
+        
         initComponents();
         camera();
+
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
         this.setSize(objFull.getWidth(),objFull.getHeight());
-        
+
         //Classes.Visual visual = new Classes.Visual();
         
     }
@@ -52,7 +53,7 @@ public class FaceRecognition extends javax.swing.JFrame {
                     if(webSource.grab()){
                         try{
                             webSource.retrieve(frame);
-                            Graphics g = jPanel1.getGraphics();
+                            Graphics g = jPanel2.getGraphics();
                             faceDetector.detectMultiScale(frame, faceDetections);
                             for(Rect rect : faceDetections.toArray()){
                                 Imgproc.rectangle(frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));   
@@ -169,15 +170,17 @@ public class FaceRecognition extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
-                System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-                
+                    
                 FaceRecognition objFRecog = new FaceRecognition();
                 
                 objFRecog.setVisible(true);
                 objFRecog.setAlwaysOnTop(true);
                 objFRecog.setResizable(false);
+
             }
         });
     }
