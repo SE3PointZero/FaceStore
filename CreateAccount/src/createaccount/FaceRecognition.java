@@ -27,8 +27,6 @@ public class FaceRecognition extends javax.swing.JFrame {
     CascadeClassifier faceDetector = new CascadeClassifier(FaceRecognition.class.getResource("haarcascade_frontalface_alt.xml").getPath().substring(1));
     MatOfRect faceDetections = new MatOfRect();
     
-    VisualBox.Video video = new VisualBox.Video();
-    
     public FaceRecognition() {
         
         initComponents();
