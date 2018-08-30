@@ -1,5 +1,0 @@
-package VisualBox;
-
-interface runnable {
-    
-}

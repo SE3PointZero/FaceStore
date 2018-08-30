@@ -11,9 +11,7 @@ and open the template in the editor.
 
 <hibernate-mapping>
    <class name = "Hibernate.vip" table = "vip_info">
-      
-    
-      
+         
       <id name = "id" >
          <generator class="assigned"/>
       </id>
@@ -26,8 +24,7 @@ and open the template in the editor.
       <property name = "Image3" />
       <property name = "Image4" />
       <property name = "Image5" />
-      
-      
+           
    </class>
 </hibernate-mapping>
 
