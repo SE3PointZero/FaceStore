@@ -1,5 +1,6 @@
 package createaccount;
 
+import javax.swing.JOptionPane;
 import org.opencv.core.Core;
 
 public class customer_form extends javax.swing.JFrame  {
@@ -50,7 +51,7 @@ public class customer_form extends javax.swing.JFrame  {
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("PLEASE TAKE 10 SNAP SHOTS WITH DIFFERENT ANGLES");
+        jLabel2.setText("PLEASE TAKE 05 SNAP SHOTS WITH DIFFERENT ANGLES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -241,8 +242,13 @@ public class customer_form extends javax.swing.JFrame  {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
-        VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
-        objSnapShot.TakeSnapShot();
+        
+        if((fullName.getText().trim().length() == 0 || fullName.getText().equals(null)) || (NIC.getText().trim().length() == 0 || NIC.getText().equals(null)) || (card.getText().trim().length() == 0 || card.getText().equals(null))){
+            JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else{
+            VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
+            objSnapShot.TakeSnapShot();
+        }     
     }//GEN-LAST:event_btnCaptureActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
