@@ -6,9 +6,9 @@ public class Welcome extends javax.swing.JFrame {
 
     public Welcome() {
         initComponents();
-//        Classes.FullScreen objFull = new Classes.FullScreen();
-//        objFull.SetResolution();
-//        this.setSize(objFull.getWidth(),objFull.getHeight());
+        Classes.FullScreen objFull = new Classes.FullScreen();
+        objFull.SetResolution();
+        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +32,7 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(480, 270, 400, 40);
+        jButton1.setBounds(480, 230, 400, 40);
 
         jButton2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jButton2.setText("Updates");
@@ -42,7 +42,7 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(530, 390, 150, 40);
+        jButton2.setBounds(480, 370, 160, 40);
 
         jButton3.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jButton3.setText("Change Password");
@@ -52,7 +52,7 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(530, 330, 290, 40);
+        jButton3.setBounds(480, 300, 290, 40);
 
         jButton4.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jButton4.setText("Logout");
@@ -62,7 +62,7 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(690, 390, 129, 43);
+        jButton4.setBounds(480, 440, 160, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/createaccount/image/WelcomePage.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -90,12 +90,10 @@ public class Welcome extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //int decision = JOptionPane.showConfirmDialog(null,"Do you want to logout?", "Logout",JOptionPane.OK_CANCEL_OPTION);
-        /*if(decision == 0){
-            this.dispose();
-        }else{
+        int decision = JOptionPane.showConfirmDialog(null,"Do you want to logout?", "Logout",JOptionPane.YES_NO_OPTION);
+        if(decision == 0){
             System.exit(0);
-        }*/
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
@@ -105,7 +103,7 @@ public class Welcome extends javax.swing.JFrame {
                 Welcome objWelcome = new Welcome();
                 objWelcome.setVisible(true);
 //                objWelcome.setAlwaysOnTop(true);
-//                objWelcome.setResizable(false);
+                objWelcome.setResizable(false);
             }
         });
     }
