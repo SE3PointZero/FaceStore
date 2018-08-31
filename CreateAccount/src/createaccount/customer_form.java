@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 import org.opencv.core.Core;
 
 public class customer_form extends javax.swing.JFrame  {
+    
+    int captureCount = 0;
 
     public customer_form() {
         initComponents();
@@ -246,13 +248,25 @@ public class customer_form extends javax.swing.JFrame  {
         if((fullName.getText().trim().length() == 0 || fullName.getText().equals(null)) || (NIC.getText().trim().length() == 0 || NIC.getText().equals(null)) || (card.getText().trim().length() == 0 || card.getText().equals(null))){
             JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{
-            VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
-            objSnapShot.TakeSnapShot();
+            VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();         
+            while(captureCount < 5){
+                objSnapShot.TakeSnapShot();
+            }
+            btnCapture.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Your Details succesfully stored", "Success", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+            VIPInformation vipInfo = new VIPInformation();
+            vipInfo.setVisible(true);
         }     
     }//GEN-LAST:event_btnCaptureActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-       // int decide = JOptionPane.showConfirmDialog(null,"Do You want to cancel?");
+       int decision = JOptionPane.showConfirmDialog(null,"Do you want to back to home screen?", "Confirmation",JOptionPane.YES_NO_OPTION);
+       if(decision == 0){
+            this.setVisible(false);
+            Welcome objWelcome = new Welcome();
+            objWelcome.setVisible(true);
+       }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void fullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullNameActionPerformed
