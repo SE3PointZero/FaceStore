@@ -97,7 +97,6 @@ public class FaceRecognition extends javax.swing.JFrame {
 //                objFRecog.setAlwaysOnTop(true);
                 objFRecog.setResizable(false);
   //              objFRecog.setSize(1120, 800);
-//                  new FaceRecognition().setVisible(true);
             }
         });
     }
