@@ -12,9 +12,9 @@ public class customer_form extends javax.swing.JFrame  {
         
         VisualBox.Camera cameraObj = new VisualBox.Camera();
         cameraObj.camera(this.jPanel1);
-//        Classes.FullScreen objFull = new Classes.FullScreen();
-//        objFull.SetResolution();
-//        this.setSize(objFull.getWidth(),objFull.getHeight());
+        Classes.FullScreen objFull = new Classes.FullScreen();
+        objFull.SetResolution();
+        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -248,10 +248,14 @@ public class customer_form extends javax.swing.JFrame  {
         if((fullName.getText().trim().length() == 0 || fullName.getText().equals(null)) || (NIC.getText().trim().length() == 0 || NIC.getText().equals(null)) || (card.getText().trim().length() == 0 || card.getText().equals(null))){
             JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{
-            VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();         
+            VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
+            Classes.NamingImage imgName = new Classes.NamingImage();
+            
             while(captureCount < 5){
+                imgName.setLoopNumber(captureCount);
                 objSnapShot.TakeSnapShot();
             }
+            
             btnCapture.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Your Details succesfully stored", "Success", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
@@ -278,12 +282,10 @@ public class customer_form extends javax.swing.JFrame  {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                customer_form objForm = new customer_form();
-//                objForm.setVisible(true);
+                customer_form objForm = new customer_form();
+                objForm.setVisible(true);
 ////                objForm.setAlwaysOnTop(true);
-////                objForm.setResizable(false);
-//                objForm.setSize(1120, 800);
-                  new customer_form().setVisible(true);
+                objForm.setResizable(false);
             }
         });
     }

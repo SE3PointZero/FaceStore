@@ -6,6 +6,8 @@ import org.opencv.videoio.VideoCapture;
 
 public class SnapShot {
     
+    Classes.NamingImage imgName = new Classes.NamingImage();
+    
     public void TakeSnapShot(){
         
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -19,7 +21,7 @@ public class SnapShot {
             while(true){
                 if(camera.read(frame)){
                     System.out.println("Frame obtained");
-                    Imgcodecs.imwrite("camera.jpg",frame);
+                    Imgcodecs.imwrite(imgName.name(),frame);
                     break;
                 }
             }
