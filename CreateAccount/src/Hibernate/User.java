@@ -1,17 +1,9 @@
 package Hibernate;
 
 public class User {
-    private int id;
+
     private String User_Name;
     private String User_Password;
-    
-    public int getId(){
-      return id;
-    }
-    
-     public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUser_Name() {
         return User_Name;

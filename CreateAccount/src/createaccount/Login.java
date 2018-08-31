@@ -112,9 +112,9 @@ public class Login extends javax.swing.JFrame {
             Welcome objWelcome = new Welcome();
             objWelcome.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "Invalid User Name or Password");
-            userName.setText(null);
-            password.setText(null);
+            //JOptionPane.showMessageDialog(null, "Invalid User Name or Password", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+            userName.setText("");
+            password.setText("");
         }    
     }//GEN-LAST:event_loginActionPerformed
 

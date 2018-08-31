@@ -2,10 +2,9 @@ package DBUpdates;
 
 public class SetUser extends SetDatas{
     
-    public void setUser(int id, String name, String pass){
+    public void setUser(String name, String pass){
         
         Hibernate.User u1 = new Hibernate.User();
-        u1.setId(id);
         u1.setUser_Name(name);
         u1.setUser_Password(pass);
         

@@ -10,9 +10,9 @@ public class FaceRecognition extends javax.swing.JFrame {
         
         VisualBox.Camera cameraObj = new VisualBox.Camera();
         cameraObj.camera(this.jPanel2);
-//        Classes.FullScreen objFull = new Classes.FullScreen();
-//        objFull.SetResolution();
-//        this.setSize(objFull.getWidth(),objFull.getHeight());
+        Classes.FullScreen objFull = new Classes.FullScreen();
+        objFull.SetResolution();
+        this.setSize(objFull.getWidth(),objFull.getHeight());
         
     }
  
@@ -22,8 +22,6 @@ public class FaceRecognition extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,12 +41,6 @@ public class FaceRecognition extends javax.swing.JFrame {
             .addGap(0, 629, Short.MAX_VALUE)
         );
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jButton1.setText("Confirm");
-
-        jButton2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jButton2.setText("Retry");
-
         jButton3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jButton3.setText("Home");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -62,30 +54,22 @@ public class FaceRecognition extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(298, 298, 298)
-                        .addComponent(jButton1)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton2)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton3)))
+                .addGap(35, 35, 35)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(482, 482, 482))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(23, 23, 23))
+                .addGap(26, 26, 26)
+                .addComponent(jButton3)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -107,20 +91,18 @@ public class FaceRecognition extends javax.swing.JFrame {
             
             public void run() {
                     
-//                FaceRecognition objFRecog = new FaceRecognition();
-//                
-//                objFRecog.setVisible(true);
+                FaceRecognition objFRecog = new FaceRecognition();
+                
+                objFRecog.setVisible(true);
 //                objFRecog.setAlwaysOnTop(true);
- //               objFRecog.setResizable(false);
+                objFRecog.setResizable(false);
   //              objFRecog.setSize(1120, 800);
-                  new FaceRecognition().setVisible(true);
+//                  new FaceRecognition().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
