@@ -9,39 +9,69 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;  
   
 public class ManageDetails {
-  
+    
+    private StandardServiceRegistry ssr;
+    private Metadata meta;
+    private SessionFactory factory;
+    private Session session;
+    private Transaction t;
+
+    public ManageDetails() {
+    }
+
+    public ManageDetails(StandardServiceRegistry ssr, Metadata meta, SessionFactory factory, Session session, Transaction t) {
+        this.ssr = ssr;
+        this.meta = meta;
+        this.factory = factory;
+        this.session = session;
+        this.t = t;
+    }
+
+    public StandardServiceRegistry getSsr() {
+        return ssr;
+    }
+
+    public void setSsr(StandardServiceRegistry ssr) {
+        this.ssr = ssr;
+    }
+
+    public Metadata getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Metadata meta) {
+        this.meta = meta;
+    }
+
+    public SessionFactory getFactory() {
+        return factory;
+    }
+
+    public void setFactory(SessionFactory factory) {
+        this.factory = factory;
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public Transaction getT() {
+        return t;
+    }
+
+    public void setT(Transaction t) {
+        this.t = t;
+    }
+    
    public void Configuration(){
-    
-    StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("src/hibernate.cfg.xml").build();  
-    Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();  
-  
-    SessionFactory factory = meta.getSessionFactoryBuilder().build();  
-    Session session = factory.openSession();  
-    Transaction t = session.beginTransaction();   
-            
-    Employee e1=new Employee();    
-    e1.setId(1);
-    e1.setEm_Fullname("Ramakrishnan");    
-    e1.setEm_NIC("960470257v"); 
-    
-    User u1 = new User();
-    u1.setId(1);
-    u1.setUser_Name("uthaya");
-    u1.setUser_Password("12345");
-    
-    vip customer = new vip();
-    customer.setId(1);
-    customer.setFullname("sharmila");
-    customer.setId_Number("955111172v");
-    //customer.setImage("Face.jpg");
-       
-    session.save(e1);
-    session.save(u1);
-    session.save(customer);
-    t.commit();  
-    System.out.println("successfully saved");    
-    factory.close();  
-    session.close();    
-        
+       setSsr(new StandardServiceRegistryBuilder().configure("src/hibernate.cfg.xml").build());
+       setMeta(new MetadataSources(ssr).getMetadataBuilder().build());
+       setFactory(meta.getSessionFactoryBuilder().build());
+       setSession(factory.openSession());
+       setT(session.beginTransaction());    
     }    
 }

@@ -1,7 +1,15 @@
 package DBUpdates;
 
-import Hibernate.ManageDetails;
-
-public class SetDatas extends ManageDetails{
+public class SetDatas{
     
+    Hibernate.ManageDetails manageDetail = new Hibernate.ManageDetails();
+
+    public SetDatas() {
+         manageDetail.Configuration();
+    }
+    
+    public void Close(){
+        manageDetail.getFactory().close();  
+        manageDetail.getSession().close();
+    }
 }
