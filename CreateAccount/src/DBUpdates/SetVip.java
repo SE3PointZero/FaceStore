@@ -2,10 +2,20 @@ package DBUpdates;
 
 public class SetVip extends SetDatas{
     
-    public void setVIP(int id, String name, String nic, int card){
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public void setVIP(String name, String nic, int card){
         
         Hibernate.vip customer = new Hibernate.vip();
-        customer.setId(id);
+        customer.setId(getId());
         customer.setFullname(name);
         customer.setId_Number(nic);
         customer.setCard_Number(card);

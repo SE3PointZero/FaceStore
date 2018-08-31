@@ -247,9 +247,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtFname" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtVno" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtNid" max="32767" attributes="0"/>
+                                  <Component id="fullName" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="card" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="NIC" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -270,15 +270,15 @@
                       <EmptySpace pref="43" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtFname" min="-2" max="-2" attributes="0"/>
+                      <Component id="fullName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtNid" min="-2" max="-2" attributes="0"/>
+                      <Component id="NIC" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtVno" min="-2" max="-2" attributes="0"/>
+                      <Component id="card" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -301,13 +301,16 @@
                 <Property name="text" type="java.lang.String" value="Full Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtFname">
+            <Component class="javax.swing.JTextField" name="fullName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="24" style="1"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="fname" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fullNameActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -317,7 +320,7 @@
                 <Property name="text" type="java.lang.String" value="National ID"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNid">
+            <Component class="javax.swing.JTextField" name="NIC">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="24" style="1"/>
@@ -333,7 +336,7 @@
                 <Property name="text" type="java.lang.String" value="Visa / Master Card"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtVno">
+            <Component class="javax.swing.JTextField" name="card">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="24" style="1"/>
