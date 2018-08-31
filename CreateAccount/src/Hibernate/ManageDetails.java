@@ -10,7 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
   
 public class ManageDetails {
   
-   public static void main(String[] args) {
+   public void Configuration(){
     
     StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("src/hibernate.cfg.xml").build();  
     Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();  
@@ -19,29 +19,29 @@ public class ManageDetails {
     Session session = factory.openSession();  
     Transaction t = session.beginTransaction();   
             
-//    Employee e1=new Employee();    
-//    e1.setId(1);
-//    e1.setEm_Fullname("Ramakrishnan");    
-//    e1.setEm_NIC("960470257v"); 
+    Employee e1=new Employee();    
+    e1.setId(1);
+    e1.setEm_Fullname("Ramakrishnan");    
+    e1.setEm_NIC("960470257v"); 
     
     User u1 = new User();
     u1.setId(1);
     u1.setUser_Name("uthaya");
     u1.setUser_Password("12345");
-//    
-//    vip customer = new vip();
-//    customer.setId(1);
-//    customer.setFullname("sharmila");
-//    customer.setId_Number("955111172v");
+    
+    vip customer = new vip();
+    customer.setId(1);
+    customer.setFullname("sharmila");
+    customer.setId_Number("955111172v");
     //customer.setImage("Face.jpg");
        
-//    session.save(e1);
+    session.save(e1);
     session.save(u1);
-//    session.save(customer);
+    session.save(customer);
     t.commit();  
     System.out.println("successfully saved");    
     factory.close();  
     session.close();    
         
-}    
+    }    
 }
