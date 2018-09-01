@@ -49,7 +49,7 @@ public class Updates extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("VIP Hotel ID");
+        jLabel4.setText("VIP NIC");
 
         removeVIP.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
@@ -74,11 +74,11 @@ public class Updates extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
+                        .addGap(308, 308, 308)
                         .addComponent(jLabel4)
-                        .addGap(106, 106, 106)
+                        .addGap(101, 101, 101)
                         .addComponent(removeVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 252, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +89,7 @@ public class Updates extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removeVIP)
+                    .addComponent(removeVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(49, 49, 49)
                 .addComponent(jButton2))
@@ -104,7 +104,7 @@ public class Updates extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Labour Hotel ID");
+        jLabel7.setText("Labour NIC");
 
         addLabour.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
@@ -165,9 +165,14 @@ public class Updates extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("Labour Hotel ID");
+        jLabel8.setText("Labour NIC");
 
         removeLabour.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        removeLabour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeLabourActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton4.setText("Confirm");
@@ -191,7 +196,7 @@ public class Updates extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addGap(37, 37, 37)
                         .addComponent(removeLabour, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton4))
@@ -236,7 +241,7 @@ public class Updates extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -256,19 +261,24 @@ public class Updates extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int removeVip = Integer.parseInt(removeVIP.getText());
+        String removeVip = removeVIP.getText();
         Confirm(removeVip, removeVIP);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int removelab = Integer.parseInt(removeLabour.getText());
+        String removelab = removeLabour.getText();
         Confirm(removelab, removeLabour);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    public void Confirm(int id, JTextField text){
+    private void removeLabourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeLabourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeLabourActionPerformed
+
+    public void Confirm(String nic, JTextField text){
         int decision = JOptionPane.showConfirmDialog(null,"Do you want to remove?", "Confirmation",JOptionPane.YES_NO_OPTION);
         if(decision == 0){
-            //delete query want to add
+            DBdelete.DeleteEmployee emp = new DBdelete.DeleteEmployee();
+            emp.delEmp(nic);
         }else{
             text.setText("");
         }
