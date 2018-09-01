@@ -20,5 +20,9 @@ public class User {
     public void setUser_Password(String password) {
         this.User_Password = password;
     }
+
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
