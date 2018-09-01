@@ -7,6 +7,7 @@ import org.opencv.videoio.VideoCapture;
 public class SnapShot {
     
     Classes.NamingImage imgName = new Classes.NamingImage();
+    Classes.Imagetransfer imgTransfer = new Classes.Imagetransfer();
     
     public void TakeSnapShot(){
         
@@ -16,12 +17,12 @@ public class SnapShot {
         if(!camera.isOpened()){
             System.out.println("Error");
         }else{
-            Mat frame = new Mat();
-            
+            Mat frame = new Mat();            
             while(true){
                 if(camera.read(frame)){
                     System.out.println("Frame obtained");
                     Imgcodecs.imwrite(imgName.name(),frame);
+                    imgTransfer.transfer(imgName.name());
                     break;
                 }
             }
