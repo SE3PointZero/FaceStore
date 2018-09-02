@@ -102,9 +102,9 @@ public class PasswordChanging extends javax.swing.JFrame {
         String conPass = confirmPassword.getText();
         
         if(newPass.equals(conPass)){
-            DBUpdates.SetUser setUser = new DBUpdates.SetUser();
+            //DBUpdates.SetUser setUser = new DBUpdates.SetUser();
             //Wants to add delete query statement
-            setUser.setUser(username, newPass);
+            //setUser.setUser(username, newPass);
             
             home();
         }else{

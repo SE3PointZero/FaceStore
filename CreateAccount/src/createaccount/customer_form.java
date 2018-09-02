@@ -11,7 +11,8 @@ public class customer_form extends javax.swing.JFrame  {
         initComponents();
         
         VisualBox.Camera cameraObj = new VisualBox.Camera();
-        cameraObj.camera(this.jPanel1);
+        cameraObj.setPanel(jPanel1);
+        cameraObj.cameraOn();
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
         this.setSize(objFull.getWidth(),objFull.getHeight());
@@ -239,8 +240,8 @@ public class customer_form extends javax.swing.JFrame  {
         
         int sCard = Integer.parseInt(vCard);
         
-        DBUpdates.SetVip vip = new DBUpdates.SetVip();
-        vip.setVIP(name, nic, sCard);
+        //DBUpdates.SetVip vip = new DBUpdates.SetVip();
+        //vip.setVIP(name, nic, sCard);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed

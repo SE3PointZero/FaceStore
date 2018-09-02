@@ -8,13 +8,12 @@ public class Camera {
     private DaemonThread myThread = null;
     private VideoCapture webSource = null;
     private JPanel panel;
-    
-    public void camera(JPanel panel){
-        
-        this.panel = panel;
-        
-        webSource = new VideoCapture(0);
-        myThread = new DaemonThread(this.getWebSource(), this.getPanel());
+
+    public void cameraOn(){ 
+        //webSource = new VideoCapture(0);
+        setWebSource(new VideoCapture(0));
+        //myThread = new DaemonThread(this.getWebSource(), this.getPanel());
+        setMyThread(new DaemonThread(this.getWebSource(), this.getPanel()));
         Thread t = new Thread(myThread);
         t.setDaemon(true);
         myThread.runnable = true;
@@ -35,6 +34,14 @@ public class Camera {
 
     public void setPanel(JPanel panel) {
         this.panel = panel;
+    }
+
+    public DaemonThread getMyThread() {
+        return myThread;
+    }
+
+    public void setMyThread(DaemonThread myThread) {
+        this.myThread = myThread;
     }
     
 }

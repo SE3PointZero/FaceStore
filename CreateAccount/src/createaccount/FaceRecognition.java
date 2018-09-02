@@ -7,9 +7,9 @@ public class FaceRecognition extends javax.swing.JFrame {
     public FaceRecognition() {
         
         initComponents();
-        
         VisualBox.Camera cameraObj = new VisualBox.Camera();
-        cameraObj.camera(this.jPanel2);
+        cameraObj.setPanel(jPanel2);
+        cameraObj.cameraOn();
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
         this.setSize(objFull.getWidth(),objFull.getHeight());

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2018 5:12:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="PojoClasses.VipInfo" table="vip_info" catalog="topazvip" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="fullname" type="string">
+            <column name="Fullname" length="30" not-null="true" />
+        </property>
+        <property name="idNumber" type="string">
+            <column name="Id_Number" length="10" not-null="true" />
+        </property>
+        <property name="cardNumber" type="int">
+            <column name="Card_Number" not-null="true" />
+        </property>
+        <property name="image1" type="binary">
+            <column name="Image1" not-null="true" />
+        </property>
+        <property name="image2" type="binary">
+            <column name="Image2" not-null="true" />
+        </property>
+        <property name="image3" type="binary">
+            <column name="Image3" not-null="true" />
+        </property>
+        <property name="image4" type="binary">
+            <column name="Image4" not-null="true" />
+        </property>
+        <property name="image5" type="binary">
+            <column name="Image5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
