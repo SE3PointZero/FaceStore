@@ -1,43 +1,50 @@
 package Connection;
 
+import java.awt.List;
+import java.util.ArrayList;
+import net.bytebuddy.agent.builder.AgentBuilder.RawMatcher.Disjunction;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import pojoClass.Employee;
+import pojoClass.LoginId;
 
 public class DBConnection {
+
+    Session session = session = HibernateUtil.getSessionFactory().openSession();
+    Transaction tx = session.beginTransaction();
     
-    Session session = null;
-    
-    public void insert(Employee e){
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
+    //Employee Object functions
+    public void insertEmp(Employee e){
         session.save(e);
         tx.commit();
         session.close();
     }
     
-    public void delete(int id){
-        
+    public void deleteEmp(int id){
         pojoClass.Employee emp = new pojoClass.Employee();
-        
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
         emp = (pojoClass.Employee)session.get(pojoClass.Employee.class, id);
         session.delete(emp);
         tx.commit();
         session.close();
     }
     
-    public String retrieve(int id){
-        
+    public String retrieveEmp(int id){ 
         pojoClass.Employee emp = new pojoClass.Employee();
-        
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
         emp = (pojoClass.Employee)session.get(pojoClass.Employee.class, id);
         tx.commit();
         session.close();
-        
         return emp.getEmFullname();
     }
+    
+    //Login Object functions
+    public String retrieveName(){       
+        pojoClass.LoginId login = new pojoClass.LoginId(); 
+        tx.commit();
+        session.close();
+        return login.getUserName();
+    }
+
 }

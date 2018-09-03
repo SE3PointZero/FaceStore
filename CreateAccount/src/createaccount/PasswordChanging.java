@@ -102,11 +102,15 @@ public class PasswordChanging extends javax.swing.JFrame {
         String conPass = confirmPassword.getText();
         
         if(newPass.equals(conPass)){
-            //DBUpdates.SetUser setUser = new DBUpdates.SetUser();
-            //Wants to add delete query statement
-            //setUser.setUser(username, newPass);
-            
-            home();
+            int decision = JOptionPane.showConfirmDialog(null, "Are you sure do you wants to change it anyway?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if(decision == 0){
+                JOptionPane.showMessageDialog(null, "User name and Password updated succesfully!");
+                home();
+            }else{
+                newUserName.setText("");
+                newPassword.setText("");
+                confirmPassword.setText("");
+            }  
         }else{
             JOptionPane.showMessageDialog(null, "Passwords are not matching. Please make sure that both of the password fields are entered correctly");
             newUserName.setText("");

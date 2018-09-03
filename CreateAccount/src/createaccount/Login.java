@@ -107,16 +107,15 @@ public class Login extends javax.swing.JFrame {
         String name = userName.getText();
         String pass = password.getText();
         
-        if(name.equals("se") && pass.equals("123")){
+        Connection.DBConnection conn = new Connection.DBConnection();
+
+        if(name.equals(conn.retrieveName())){
             this.setVisible(false);
-            Welcome objWelcome = new Welcome();
-            objWelcome.setVisible(true);
+            createaccount.Welcome welcome = new createaccount.Welcome();
+            welcome.setVisible(true);
         }else{
-            //JOptionPane.showMessageDialog(null, "Please make sure you entered correct user name and password");
-            userName.setText("");
-            password.setText("");
-            //JOptionPane.showMessageDialog(null, "Please make sure you entered correct user name and password", "Warning", JOptionPane.WARNING_MESSAGE);
-        }    
+            
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed

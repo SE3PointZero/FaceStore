@@ -9,7 +9,7 @@ package pojoClass;
 public class Login  implements java.io.Serializable {
 
 
-     private LoginId id;
+    private LoginId id;
 
     public Login() {
     }
@@ -25,9 +25,6 @@ public class Login  implements java.io.Serializable {
     public void setId(LoginId id) {
         this.id = id;
     }
-
-
-
 
 }
 

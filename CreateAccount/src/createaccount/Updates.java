@@ -267,25 +267,20 @@ public class Updates extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int id = Integer.parseInt(removeLabour.getText());
-        Connection.DBConnection conn = new Connection.DBConnection();
-        conn.delete(id);
+        int decision = JOptionPane.showConfirmDialog(null,"Do you want to remove?", "Confirmation",JOptionPane.YES_NO_OPTION);
+        if(decision == 0){
+            Connection.DBConnection conn = new Connection.DBConnection();
+            conn.deleteEmp(id);
+            JOptionPane.showMessageDialog(null, "Succesfully deleted");
+        }else{
+            removeLabour.setText("");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void removeLabourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeLabourActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removeLabourActionPerformed
 
-    public void Confirm(int nic){
-        int decision = JOptionPane.showConfirmDialog(null,"Do you want to remove?", "Confirmation",JOptionPane.YES_NO_OPTION);
-        if(decision == 0){
-//            DBEmployee.EmployeeDelete emp = new DBEmployee.EmployeeDelete();
-//            emp.delete(nic);
-           // DBConnection.Connection conn = new DBConnection.Connection();
-           // conn.delete(nic);
-            JOptionPane.showMessageDialog(null, "Succesfully deleted");
-        }
-    }
-    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
