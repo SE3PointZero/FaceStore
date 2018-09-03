@@ -266,22 +266,23 @@ public class Updates extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String removelab = removeLabour.getText();
-        int id = Integer.parseInt(removelab);
-        Confirm(id, removeLabour);
+        int id = Integer.parseInt(removeLabour.getText());
+        Connection.DBConnection conn = new Connection.DBConnection();
+        conn.delete(id);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void removeLabourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeLabourActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removeLabourActionPerformed
 
-    public void Confirm(int nic, JTextField text){
+    public void Confirm(int nic){
         int decision = JOptionPane.showConfirmDialog(null,"Do you want to remove?", "Confirmation",JOptionPane.YES_NO_OPTION);
         if(decision == 0){
-            //DBdelete.DeleteEmployee emp = new DBdelete.DeleteEmployee();
-            //emp.delEmp(nic);
-        }else{
-            text.setText("");
+//            DBEmployee.EmployeeDelete emp = new DBEmployee.EmployeeDelete();
+//            emp.delete(nic);
+           // DBConnection.Connection conn = new DBConnection.Connection();
+           // conn.delete(nic);
+            JOptionPane.showMessageDialog(null, "Succesfully deleted");
         }
     }
     

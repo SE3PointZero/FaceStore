@@ -45,8 +45,8 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/topazvip?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="PojoClasses/Login.hbm.xml"/>
-    <mapping resource="PojoClasses/Employee.hbm.xml"/>
-    <mapping resource="PojoClasses/VipInfo.hbm.xml"/>
+    <mapping resource="pojoClass/VipInfo.hbm.xml"/>
+    <mapping resource="pojoClass/Employee.hbm.xml"/>
+    <mapping resource="pojoClass/Login.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

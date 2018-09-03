@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 3, 2018 5:12:23 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Sep 3, 2018 7:40:07 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="PojoClasses.VipInfo" table="vip_info" catalog="topazvip" optimistic-lock="version">
+    <class name="pojoClass.VipInfo" table="vip_info" catalog="topazvip" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
