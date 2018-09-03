@@ -9,6 +9,10 @@ public class SnapShot {
     Classes.NamingImage imgName = new Classes.NamingImage();
     Classes.Imagetransfer imgTransfer = new Classes.Imagetransfer();
     
+    public void SentCount(int count){
+        imgName.setLoopNumber(count);
+    }
+    
     public void TakeSnapShot(){
         
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -21,6 +25,7 @@ public class SnapShot {
             while(true){
                 if(camera.read(frame)){
                     System.out.println("Frame obtained");
+                    System.out.println("" + imgName.name());
                     Imgcodecs.imwrite(imgName.name(),frame);
                     imgTransfer.transfer(imgName.name());
                     break;
@@ -29,4 +34,5 @@ public class SnapShot {
         }
         camera.release();
     }
+    
 }

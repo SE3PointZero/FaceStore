@@ -5,8 +5,8 @@ import org.opencv.core.Core;
 
 public class customer_form extends javax.swing.JFrame  {
     
-    int captureCount = 0;
-
+    public static int captureCount = 0;
+    
     public customer_form() {
         initComponents();
         
@@ -239,7 +239,10 @@ public class customer_form extends javax.swing.JFrame  {
         String vCard = card.getText();
         int Card = Integer.parseInt(vCard);
         
-        
+        Connection.DBConnection conn = new Connection.DBConnection();
+        //conn.insertVip(name, nic, Card, image1, image2, image3, image4, image5);
+        JOptionPane.showMessageDialog(null, "Informations succesfully stored");
+        captureCount = 0;
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
@@ -247,19 +250,17 @@ public class customer_form extends javax.swing.JFrame  {
         if((fullName.getText().trim().length() == 0 || fullName.getText().equals(null)) || (NIC.getText().trim().length() == 0 || NIC.getText().equals(null)) || (card.getText().trim().length() == 0 || card.getText().equals(null))){
             JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{
-            VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
-            Classes.NamingImage imgName = new Classes.NamingImage();
             
-            while(captureCount < 5){
-                imgName.setLoopNumber(captureCount);
+            if(captureCount > 5){
+                 btnCapture.setEnabled(false);
+                 JOptionPane.showMessageDialog(null, "Your Details succesfully stored", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
+                objSnapShot.SentCount(captureCount);
                 objSnapShot.TakeSnapShot();
-            }
+                captureCount++;  
+            }           
             
-            btnCapture.setEnabled(false);
-            JOptionPane.showMessageDialog(null, "Your Details succesfully stored", "Success", JOptionPane.INFORMATION_MESSAGE);
-            this.setVisible(false);
-            VIPInformation vipInfo = new VIPInformation();
-            vipInfo.setVisible(true);
         }     
     }//GEN-LAST:event_btnCaptureActionPerformed
 

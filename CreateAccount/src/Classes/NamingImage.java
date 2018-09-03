@@ -3,18 +3,10 @@ package Classes;
 public class NamingImage {
     
     private int loopNumber;
-    private String idName, imageName;
+    private String imageName;
 
     public int getLoopNumber() {
         return loopNumber;
-    }
-
-    public String getIdName() {
-        return idName;
-    }
-
-    public void setIdName(String idName) {
-        this.idName = idName;
     }
 
     public String getImageName() {
@@ -29,9 +21,9 @@ public class NamingImage {
         this.loopNumber = loopNumber;
     }
     
-    public String name(){        
-        //get the id of the customer and assign to idName
-        return getImageName();
+    public String name(){
+        setImageName(String.valueOf(getLoopNumber()));
+        return (getImageName() + ".jpeg");
     }
 
 }
