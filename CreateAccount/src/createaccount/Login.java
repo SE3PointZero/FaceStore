@@ -108,13 +108,12 @@ public class Login extends javax.swing.JFrame {
         String pass = password.getText();
         
         Connection.DBConnection conn = new Connection.DBConnection();
-
-        if(name.equals(conn.retrieveName())){
+        if(name.equals(conn.retrieveLoginName())){
             this.setVisible(false);
             createaccount.Welcome welcome = new createaccount.Welcome();
             welcome.setVisible(true);
         }else{
-            
+            System.out.println("Sorry");
         }
     }//GEN-LAST:event_loginActionPerformed
 

@@ -237,11 +237,8 @@ public class customer_form extends javax.swing.JFrame  {
         String name = fullName.getText();
         String nic = NIC.getText();
         String vCard = card.getText();
+        int Card = Integer.parseInt(vCard);
         
-        int sCard = Integer.parseInt(vCard);
-        
-        //DBUpdates.SetVip vip = new DBUpdates.SetVip();
-        //vip.setVIP(name, nic, sCard);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed

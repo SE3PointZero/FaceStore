@@ -4,13 +4,15 @@
 <!-- Generated Sep 3, 2018 7:40:07 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojoClass.Login" table="login" catalog="topazvip" optimistic-lock="version">
-        <composite-id name="id" class="pojoClass.LoginId">
-            <key-property name="userName" type="string">
-                <column name="User_Name" length="30" />
-            </key-property>
-            <key-property name="userPassword" type="string">
-                <column name="User_Password" length="15" />
-            </key-property>
-        </composite-id>
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"/>
+        </id>
+        <property name="User_Name" type="string">
+            <column name="User_Name" length="30" not-null="true" />
+        </property>
+        <property name="User_Password" type="string">
+            <column name="User_Password" length="15" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -1,50 +1,61 @@
 package Connection;
 
-import java.awt.List;
-import java.util.ArrayList;
-import net.bytebuddy.agent.builder.AgentBuilder.RawMatcher.Disjunction;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-import pojoClass.Employee;
-import pojoClass.LoginId;
 
 public class DBConnection {
 
-    Session session = session = HibernateUtil.getSessionFactory().openSession();
+    Session session =  HibernateUtil.getSessionFactory().openSession();
     Transaction tx = session.beginTransaction();
     
-    //Employee Object functions
-    public void insertEmp(Employee e){
-        session.save(e);
+    pojoClass.Employee emp = new pojoClass.Employee();
+    
+    public void commitAndClose(){
         tx.commit();
         session.close();
+    }
+    
+    //Employee Object functions
+    public void insertEmp(String name, String nic){
+        emp.setEmFullname(name);
+        emp.setEmNic(nic);
+        session.save(emp);
+        commitAndClose();
     }
     
     public void deleteEmp(int id){
-        pojoClass.Employee emp = new pojoClass.Employee();
         emp = (pojoClass.Employee)session.get(pojoClass.Employee.class, id);
         session.delete(emp);
-        tx.commit();
-        session.close();
+        commitAndClose();
     }
     
     public String retrieveEmp(int id){ 
-        pojoClass.Employee emp = new pojoClass.Employee();
         emp = (pojoClass.Employee)session.get(pojoClass.Employee.class, id);
-        tx.commit();
-        session.close();
+        commitAndClose();
         return emp.getEmFullname();
     }
     
     //Login Object functions
-    public String retrieveName(){       
-        pojoClass.LoginId login = new pojoClass.LoginId(); 
-        tx.commit();
-        session.close();
-        return login.getUserName();
+    private static final int id = 1;
+    
+    public String retrieveLoginName(){ 
+        pojoClass.Login login = new pojoClass.Login();
+        login = (pojoClass.Login)session.get(pojoClass.Login.class,id);
+        commitAndClose();
+        return login.getUser_Name();
     }
 
+    public String retrieveLoginPassword(){ 
+        pojoClass.Login login = new pojoClass.Login();
+        login = (pojoClass.Login)session.get(pojoClass.Login.class,id);
+        commitAndClose();
+        return login.getUser_Password();
+    }
+    
+    //PasswordChanging
+    public void updateLoginInfo(String name, String password){
+        pojoClass.Login login = new pojoClass.Login(name, password);
+        session.update(login);
+        commitAndClose();
+    }
 }

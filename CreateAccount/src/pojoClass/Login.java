@@ -8,24 +8,42 @@ package pojoClass;
  */
 public class Login  implements java.io.Serializable {
 
-
-    private LoginId id;
+    private Integer id;
+    private String User_Name;
+    private String User_Password;
 
     public Login() {
     }
 
-    public Login(LoginId id) {
-       this.id = id;
+    public Login(String User_Name, String User_Password) {
+        this.User_Name = User_Name;
+        this.User_Password = User_Password;
     }
-   
-    public LoginId getId() {
-        return this.id;
+
+    public Integer getId() {
+        return id;
     }
-    
-    public void setId(LoginId id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
+    public String getUser_Name() {
+        return User_Name;
+    }
+
+    public void setUser_Name(String User_Name) {
+        this.User_Name = User_Name;
+    }
+
+    public String getUser_Password() {
+        return User_Password;
+    }
+
+    public void setUser_Password(String User_Password) {
+        this.User_Password = User_Password;
+    }
+    
 }
 
 

@@ -104,6 +104,8 @@ public class PasswordChanging extends javax.swing.JFrame {
         if(newPass.equals(conPass)){
             int decision = JOptionPane.showConfirmDialog(null, "Are you sure do you wants to change it anyway?", "Confirmation", JOptionPane.YES_NO_OPTION);
             if(decision == 0){
+                Connection.DBConnection conn = new Connection.DBConnection();
+                conn.updateLoginInfo(username, newPass);
                 JOptionPane.showMessageDialog(null, "User name and Password updated succesfully!");
                 home();
             }else{

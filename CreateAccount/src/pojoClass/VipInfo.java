@@ -97,9 +97,6 @@ public class VipInfo  implements java.io.Serializable {
         this.image5 = image5;
     }
 
-
-
-
 }
 
 
