@@ -8,9 +8,17 @@ public class Connection {
     static Session session = null;
     static Transaction tx = null;
 
-    public Connection() {
+    public void makeConnection() {
         session = HibernateUtil.getSessionFactory().openSession();
         tx = session.beginTransaction();
+    }
+    
+    public void save(Object objSave){
+        session.save(objSave);
+    }
+    
+    public void delete(Object objDel){
+        session.delete(objDel);
     }
     
     public void commitAndClose(){
