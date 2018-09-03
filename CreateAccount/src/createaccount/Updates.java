@@ -51,7 +51,7 @@ public class Updates extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("VIP NIC");
+        jLabel4.setText("VIP Id");
 
         removeVIP.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
@@ -74,9 +74,9 @@ public class Updates extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(272, 272, 272)
                 .addComponent(jLabel4)
-                .addGap(137, 137, 137)
-                .addComponent(removeVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(removeVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addComponent(jButton2))
         );
         jPanel2Layout.setVerticalGroup(
@@ -179,7 +179,7 @@ public class Updates extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("Labour NIC");
+        jLabel8.setText("Labour Id");
 
         removeLabour.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         removeLabour.addActionListener(new java.awt.event.ActionListener() {
@@ -207,9 +207,9 @@ public class Updates extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(271, 271, 271)
                 .addComponent(jLabel8)
-                .addGap(80, 80, 80)
-                .addComponent(removeLabour, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(removeLabour, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(jButton4))
         );
         jPanel5Layout.setVerticalGroup(
@@ -218,12 +218,13 @@ public class Updates extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removeLabour, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton4))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(removeLabour, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)))
                 .addGap(75, 75, 75))
         );
 
@@ -280,8 +281,18 @@ public class Updates extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String removeVip = removeVIP.getText();
-        //Confirm(removeVip, removeVIP);
+        
+        int id = Integer.parseInt(removeVIP.getText());
+        int decision = JOptionPane.showConfirmDialog(null,"Do you want to remove?", "Confirmation",JOptionPane.YES_NO_OPTION);
+        if(decision == 0){
+            Connection.DBConnection conn = new Connection.DBConnection();
+            conn.deleteVip(id);
+            JOptionPane.showMessageDialog(null, "Succesfully deleted");
+            removeVIP.setText("");
+        }else{
+            removeVIP.setText("");
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

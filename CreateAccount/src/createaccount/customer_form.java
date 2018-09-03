@@ -239,6 +239,7 @@ public class customer_form extends javax.swing.JFrame  {
         String vCard = card.getText();
         int Card = Integer.parseInt(vCard);
         
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
