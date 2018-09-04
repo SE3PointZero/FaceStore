@@ -7,8 +7,11 @@ import org.opencv.videoio.VideoCapture;
 
 public class SnapShot {
     
+    private String imageLocation;
+    private static final String workingDir = System.getProperty("user.dir");
+    
     Classes.NamingImage imgName = new Classes.NamingImage();
-    //Classes.Imagetransfer imgTransfer = new Classes.Imagetransfer();
+    
     VideoCapture camera = new VideoCapture(0);
     
     public void SentCount(int count){
@@ -30,12 +33,23 @@ public class SnapShot {
                     JOptionPane.showMessageDialog(null, "Storing on proces.......");
                     System.out.println("" + imgName.name());
                     Imgcodecs.imwrite(imgName.name(),frame);
-                    //imgTransfer.transfer(imgName.name());
+                    setImageLocation(imgName.name());
                     break;
                 }
             }
         }
         //camera.release();
     }
-    
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = (getWorkingDir() + imageLocation);
+    }
+
+    public static String getWorkingDir() {
+        return workingDir;
+    }
 }

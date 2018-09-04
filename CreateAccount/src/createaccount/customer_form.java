@@ -6,6 +6,7 @@ import org.opencv.core.Core;
 public class customer_form extends javax.swing.JFrame  {
     
     public static int captureCount = 0;
+    String[] path = new String[5]; 
     
     public customer_form() {
         initComponents();
@@ -28,6 +29,8 @@ public class customer_form extends javax.swing.JFrame  {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        countSnap = new javax.swing.JLabel();
         LblCname = new javax.swing.JLabel();
         btnCancel = new javax.swing.JButton();
         btnCapture = new javax.swing.JButton();
@@ -56,7 +59,7 @@ public class customer_form extends javax.swing.JFrame  {
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("PLEASE TAKE 05 SNAP SHOTS");
+        jLabel2.setText("PLEASE TAKE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -69,24 +72,41 @@ public class customer_form extends javax.swing.JFrame  {
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("SNAP SHOTS");
+
+        countSnap.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        countSnap.setForeground(new java.awt.Color(255, 255, 255));
+        countSnap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(115, 115, 115)
+                        .addComponent(countSnap, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(countSnap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -241,7 +261,9 @@ public class customer_form extends javax.swing.JFrame  {
         int Card = Integer.parseInt(vCard);
 
         Connection.DBConnection conn = new Connection.DBConnection();
-        //conn.insertVip(name, nic, Card, image1, image2, image3, image4, image5);
+        conn.setArray(path);
+        conn.insertVip(name, nic, Card);
+         
         JOptionPane.showMessageDialog(null, "Informations succesfully stored");
         captureCount = 0; 
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -252,17 +274,28 @@ public class customer_form extends javax.swing.JFrame  {
             JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{            
             if(captureCount == 5){
+                countSnap.setText("0");
                 btnSave.setEnabled(true);
                 btnCapture.setEnabled(false);
                 JOptionPane.showMessageDialog(null, "Your Details succesfully stored", "Success", JOptionPane.INFORMATION_MESSAGE);
             }else{ 
+                countSnap.setText("" + (5-captureCount));
                 objSnapShot.SentCount((captureCount + 1));
                 objSnapShot.TakeSnapShot();
+                savePathArray(objSnapShot.getImageLocation());
                 captureCount++;  
             }           
         }     
     }//GEN-LAST:event_btnCaptureActionPerformed
 
+    public void savePathArray(String location){
+        try{
+            path[captureCount] = location;
+        }catch(ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
+        }
+    }
+    
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
        int decision = JOptionPane.showConfirmDialog(null,"Do you want to back to home screen?", "Confirmation",JOptionPane.YES_NO_OPTION);
        if(decision == 0){
@@ -296,8 +329,10 @@ public class customer_form extends javax.swing.JFrame  {
     private javax.swing.JButton btnCapture;
     private javax.swing.JButton btnSave;
     private javax.swing.JTextField card;
+    private javax.swing.JLabel countSnap;
     private javax.swing.JTextField fullName;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

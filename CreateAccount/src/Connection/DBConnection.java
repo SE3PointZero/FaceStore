@@ -1,9 +1,15 @@
 package Connection;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class DBConnection {
+    
+    private String array[] = new String[5];
 
     Session session =  HibernateUtil.getSessionFactory().openSession();
     Transaction tx = session.beginTransaction();
@@ -62,15 +68,15 @@ public class DBConnection {
     }
     
     //Vip Object functions
-    public void insertVip(String name, String nic, int card, byte[] image1, byte[] image2, byte[] image3, byte[] image4, byte[] image5){
+    public void insertVip(String name, String nic, int card){
         vip.setFullname(name);
         vip.setIdNumber(nic);
         vip.setCardNumber(card);
-        vip.setImage1(image1);
-        vip.setImage2(image2);
-        vip.setImage3(image3);
-        vip.setImage4(image4);
-        vip.setImage5(image5);
+        
+        for(int i = 0; i<5; i++){
+               
+        }
+        
         session.save(vip);
         commitAndClose();
         vip = null;
@@ -81,5 +87,35 @@ public class DBConnection {
         session.delete(vip);
         commitAndClose();
         vip = null;
+    }
+    
+    public void getImage(){//To get the image from the project to store on the database
+        Path path = Paths.get("");
+        byte[] data = null;
+        try{
+            data = Files.readAllBytes(path);
+            //session.doWork(conn -> {vip.setImage1(BlobProxy.generateProxy(getImage()));});
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } 
+    }
+    
+    public String[] getArray() {
+        return array;
+    }
+
+    public void setArray(String[] array) {
+        this.array = array;
+    }
+
+    public void retrieveVip(String id){
+        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
+        
+        vip.getFullname();
+        vip.getIdNumber();
+        vip.getCardNumber();
+        vip.getId();
+        
+        byte[] image = vip.getImage1();
     }
 }
