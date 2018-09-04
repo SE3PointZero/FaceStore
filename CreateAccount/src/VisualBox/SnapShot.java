@@ -8,7 +8,7 @@ import org.opencv.videoio.VideoCapture;
 public class SnapShot {
     
     Classes.NamingImage imgName = new Classes.NamingImage();
-    Classes.Imagetransfer imgTransfer = new Classes.Imagetransfer();
+    //Classes.Imagetransfer imgTransfer = new Classes.Imagetransfer();
     VideoCapture camera = new VideoCapture(0);
     
     public void SentCount(int count){
@@ -30,7 +30,7 @@ public class SnapShot {
                     JOptionPane.showMessageDialog(null, "Storing on proces.......");
                     System.out.println("" + imgName.name());
                     Imgcodecs.imwrite(imgName.name(),frame);
-                    imgTransfer.transfer(imgName.name());
+                    //imgTransfer.transfer(imgName.name());
                     break;
                 }
             }
