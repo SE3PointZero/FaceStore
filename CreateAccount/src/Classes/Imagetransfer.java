@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Imagetransfer {
     
-    String cwd = System.getProperty("user.dir");
+    private String cwd = System.getProperty("user.dir");
     
     public void transfer(String name){
         File file = new File(cwd + name);

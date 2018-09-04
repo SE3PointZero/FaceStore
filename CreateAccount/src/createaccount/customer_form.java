@@ -16,6 +16,8 @@ public class customer_form extends javax.swing.JFrame  {
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
         this.setSize(objFull.getWidth(),objFull.getHeight());
+        
+        btnSave.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -106,7 +108,7 @@ public class customer_form extends javax.swing.JFrame  {
                 btnCancelActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 650, -1, -1));
+        jPanel2.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 660, -1, -1));
 
         btnCapture.setBackground(new java.awt.Color(255, 255, 255));
         btnCapture.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -117,7 +119,7 @@ public class customer_form extends javax.swing.JFrame  {
                 btnCaptureActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCapture, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 650, -1, -1));
+        jPanel2.add(btnCapture, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 660, -1, -1));
 
         btnSave.setBackground(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -128,7 +130,7 @@ public class customer_form extends javax.swing.JFrame  {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 650, -1, -1));
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 660, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setMaximumSize(null);
@@ -233,34 +235,31 @@ public class customer_form extends javax.swing.JFrame  {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        
         String name = fullName.getText();
         String nic = NIC.getText();
         String vCard = card.getText();
         int Card = Integer.parseInt(vCard);
-        
+
         Connection.DBConnection conn = new Connection.DBConnection();
         //conn.insertVip(name, nic, Card, image1, image2, image3, image4, image5);
         JOptionPane.showMessageDialog(null, "Informations succesfully stored");
-        captureCount = 0;
+        captureCount = 0; 
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
-        
+        VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
         if((fullName.getText().trim().length() == 0 || fullName.getText().equals(null)) || (NIC.getText().trim().length() == 0 || NIC.getText().equals(null)) || (card.getText().trim().length() == 0 || card.getText().equals(null))){
             JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else{
-            
-            if(captureCount > 5){
-                 btnCapture.setEnabled(false);
-                 JOptionPane.showMessageDialog(null, "Your Details succesfully stored", "Success", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
-                objSnapShot.SentCount(captureCount);
+        }else{            
+            if(captureCount == 5){
+                btnSave.setEnabled(true);
+                btnCapture.setEnabled(false);
+                JOptionPane.showMessageDialog(null, "Your Details succesfully stored", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }else{ 
+                objSnapShot.SentCount((captureCount + 1));
                 objSnapShot.TakeSnapShot();
                 captureCount++;  
             }           
-            
         }     
     }//GEN-LAST:event_btnCaptureActionPerformed
 
