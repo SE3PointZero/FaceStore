@@ -25,6 +25,7 @@ public class DBConnection {
         session.close();
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Employee Object functions
     public void insertEmp(String name, String nic){
         emp.setEmFullname(name);
@@ -47,6 +48,7 @@ public class DBConnection {
         return emp.getEmFullname();
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Login Object functions
     private static final int id = 1;
     
@@ -69,6 +71,7 @@ public class DBConnection {
         commitAndClose();
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Vip Object functions
     public void insertVip(String name, String nic){
         vip.setFullname(name);
@@ -86,10 +89,14 @@ public class DBConnection {
     }
     
     public void deleteVip(int id){
-        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
         session.delete(vip);
         commitAndClose();
         vip = null;
+    }
+    
+    public void retrieveVip(String id){
+        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
+        Blob image = vip.getImage1();
     }
     
     public byte[] getImage(String imagePath){//To get the image from the project to store on the database
@@ -110,18 +117,6 @@ public class DBConnection {
 
     public void setArray(String[] array) {
         this.array = array;
-    }
-
-    public void retrieveVip(String id){
-        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
-        
-        vip.getFullname();
-        vip.getIdNumber();
-        //vip.getCardNumber();
-        vip.getId();
-        
-        //byte[] image = vip.getImage1();
-        Blob image = vip.getImage1();
     }
     
     private void imageCondtions(int num, Object b){
