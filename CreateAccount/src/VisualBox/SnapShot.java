@@ -45,8 +45,8 @@ public class SnapShot {
         return imageLocation;
     }
 
-    public void setImageLocation(String imageLocation) {
-        this.imageLocation = (getWorkingDir() + imageLocation);
+    public void setImageLocation(String imageName) {
+        this.imageLocation = (getWorkingDir() + imageName);
     }
 
     public static String getWorkingDir() {
