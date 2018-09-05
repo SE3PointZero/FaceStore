@@ -17,19 +17,19 @@
         <property name="cardNumber" type="int">
             <column name="Card_Number" not-null="true" />
         </property>
-        <property name="image1" type="binary">
+        <property name="image1" type="blob">
             <column name="Image1" not-null="true" />
         </property>
-        <property name="image2" type="binary">
+        <property name="image2" type="blob">
             <column name="Image2" not-null="true" />
         </property>
-        <property name="image3" type="binary">
+        <property name="image3" type="blob">
             <column name="Image3" not-null="true" />
         </property>
-        <property name="image4" type="binary">
+        <property name="image4" type="blob">
             <column name="Image4" not-null="true" />
         </property>
-        <property name="image5" type="binary">
+        <property name="image5" type="blob">
             <column name="Image5" not-null="true" />
         </property>
     </class>

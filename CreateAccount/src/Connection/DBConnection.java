@@ -70,15 +70,16 @@ public class DBConnection {
     }
     
     //Vip Object functions
-    public void insertVip(String name, String nic, int card){
+    public void insertVip(String name, String nic){
         vip.setFullname(name);
         vip.setIdNumber(nic);
-        vip.setCardNumber(card);
+        vip.setCardNumber(12);
         
         for(int i = 0; i<5; i++){
-            imageCondtions(i);
+            imageCondtions(i, vip);
         }
         
+        System.out.println("loop finish");
         session.save(vip);
         commitAndClose();
         vip = null;
@@ -116,33 +117,35 @@ public class DBConnection {
         
         vip.getFullname();
         vip.getIdNumber();
-        vip.getCardNumber();
+        //vip.getCardNumber();
         vip.getId();
         
         //byte[] image = vip.getImage1();
         Blob image = vip.getImage1();
     }
     
-    private void imageCondtions(int num){
+    private void imageCondtions(int num, Object b){
         String loc = getArray(num);
+        pojoClass.VipInfo vipI = (pojoClass.VipInfo) b ;
         switch(num){
             case 0:
-                session.doWork(conn -> {vip.setImage1(BlobProxy.generateProxy(getImage(loc)));});
+                session.doWork(conn -> {vipI.setImage1(BlobProxy.generateProxy(getImage(loc)));});
                 break;
             case 1:
-                session.doWork(conn -> {vip.setImage2(BlobProxy.generateProxy(getImage(loc)));});
+                session.doWork(conn -> {vipI.setImage2(BlobProxy.generateProxy(getImage(loc)));});
                 break;
             case 2:
-                session.doWork(conn -> {vip.setImage3(BlobProxy.generateProxy(getImage(loc)));});
+                session.doWork(conn -> {vipI.setImage3(BlobProxy.generateProxy(getImage(loc)));});
                 break;
             case 3:
-                session.doWork(conn -> {vip.setImage4(BlobProxy.generateProxy(getImage(loc)));});
+                session.doWork(conn -> {vipI.setImage4(BlobProxy.generateProxy(getImage(loc)));});
                 break;
             case 4:
-                session.doWork(conn -> {vip.setImage5(BlobProxy.generateProxy(getImage(loc)));});
+                session.doWork(conn -> {vipI.setImage5(BlobProxy.generateProxy(getImage(loc)));});
                 break;
             default:
                 System.out.println("Error while sending images to the database");
+                break;
         }
     }
 }

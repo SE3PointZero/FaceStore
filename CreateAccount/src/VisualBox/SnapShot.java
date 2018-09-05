@@ -9,9 +9,8 @@ public class SnapShot {
     
     private String imageLocation;
     private static final String workingDir = System.getProperty("user.dir");
-    
+
     Classes.NamingImage imgName = new Classes.NamingImage();
-    
     VideoCapture camera = new VideoCapture(0);
     
     public void SentCount(int count){
@@ -19,7 +18,6 @@ public class SnapShot {
     }
     
     public void TakeSnapShot(){
-        
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         //VideoCapture camera = new VideoCapture(0);
         
@@ -46,10 +44,11 @@ public class SnapShot {
     }
 
     public void setImageLocation(String imageName) {
-        this.imageLocation = (getWorkingDir() + imageName);
+        this.imageLocation = (getWorkingDir() + "\\" + imageName);
     }
 
     public static String getWorkingDir() {
         return workingDir;
     }
+
 }

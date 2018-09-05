@@ -8,10 +8,12 @@ public class customer_form extends javax.swing.JFrame  {
     public static int captureCount = 0;
     String[] pathArray = new String[5]; 
     
-    VisualBox.Camera cameraObj = new VisualBox.Camera();
+    VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
     
     public customer_form() {
         initComponents();
+        
+        VisualBox.Camera cameraObj = new VisualBox.Camera();
         
         cameraObj.setPanel(jPanel1);
         cameraObj.cameraOn();
@@ -258,23 +260,22 @@ public class customer_form extends javax.swing.JFrame  {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
+        JOptionPane.showMessageDialog(null, "Wait for a while.....................");
+        
         String name = fullName.getText();
         String nic = NIC.getText();
-        String vCard = card.getText();
-        int cardNumber = Integer.parseInt(card.getText());
-        
+
         Connection.DBConnection conn = new Connection.DBConnection();
 
         conn.setArray(pathArray);
-        conn.insertVip(name, nic, cardNumber);
+        conn.insertVip(name, nic);
 
-        JOptionPane.showMessageDialog(null, "Finalize your informations...........Please click save button to store your informations");
+        JOptionPane.showMessageDialog(null, "Your informations stored successfully");
         captureCount = 0; 
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
-        VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
-
+        
         if((fullName.getText().trim().length() == 0 || fullName.getText().equals(null)) || (NIC.getText().trim().length() == 0 || NIC.getText().equals(null)) || (card.getText().trim().length() == 0 || card.getText().equals(null))){
             JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{            

@@ -10,9 +10,7 @@ public class Camera {
     private JPanel panel;
 
     public void cameraOn(){ 
-        //webSource = new VideoCapture(0);
         setWebSource(new VideoCapture(0));
-        //myThread = new DaemonThread(this.getWebSource(), this.getPanel());
         setMyThread(new DaemonThread(this.getWebSource(), this.getPanel()));
         Thread t = new Thread(myThread);
         t.setDaemon(true);
