@@ -104,16 +104,17 @@ public class Login extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         
-        String name = userName.getText();
+        String username = userName.getText();
         String pass = password.getText();
         
         Connection.DBConnection conn = new Connection.DBConnection();
-        if(name.equals(conn.retrieveLoginName())){
+        
+        if(username.equals(conn.retrieveLoginName())){
             this.setVisible(false);
             createaccount.Welcome welcome = new createaccount.Welcome();
             welcome.setVisible(true);
         }else{
-            System.out.println("Sorry");
+            JOptionPane.showMessageDialog(null, "Sorry user name or password is incorrect");
         }
     }//GEN-LAST:event_loginActionPerformed
 
