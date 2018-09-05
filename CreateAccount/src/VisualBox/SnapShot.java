@@ -27,9 +27,7 @@ public class SnapShot {
             Mat frame = new Mat();            
             while(true){
                 if(camera.read(frame)){
-                    System.out.println("Frame obtained");
                     JOptionPane.showMessageDialog(null, "Storing on proces.......Please continue caputuring your image");
-                    System.out.println("" + imgName.name());
                     Imgcodecs.imwrite(imgName.name(),frame);
                     setImageLocation(imgName.name());
                     break;

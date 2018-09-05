@@ -14,9 +14,6 @@
         <property name="idNumber" type="string">
             <column name="Id_Number" length="10" not-null="true" />
         </property>
-        <property name="cardNumber" type="int">
-            <column name="Card_Number" not-null="true" />
-        </property>
         <property name="image1" type="blob">
             <column name="Image1" not-null="true" />
         </property>

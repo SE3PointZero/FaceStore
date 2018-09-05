@@ -12,7 +12,6 @@ public class VipInfo  implements java.io.Serializable {
     private Integer id;
     private String fullname;
     private String idNumber;
-    private int cardNumber;
     private Blob image1;
     private Blob image2;
     private Blob image3;
@@ -22,10 +21,9 @@ public class VipInfo  implements java.io.Serializable {
     public VipInfo() {
     }
    
-    public VipInfo(String fullname, String idNumber, int cardNumber, Blob image1, Blob image2, Blob image3, Blob image4, Blob image5) {
+    public VipInfo(String fullname, String idNumber, Blob image1, Blob image2, Blob image3, Blob image4, Blob image5) {
        this.fullname = fullname;
        this.idNumber = idNumber;
-       this.cardNumber = cardNumber;
        this.image1 = image1;
        this.image2 = image2;
        this.image3 = image3;
@@ -53,14 +51,6 @@ public class VipInfo  implements java.io.Serializable {
     
     public void setIdNumber(String idNumber) {
         this.idNumber = idNumber;
-    }
-    
-    public int getCardNumber() {
-        return this.cardNumber;
-    }
-    
-    public void setCardNumber(int cardNumber) {
-        this.cardNumber = cardNumber;
     }
 
     public Blob getImage1() {

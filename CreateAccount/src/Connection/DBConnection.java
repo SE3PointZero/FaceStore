@@ -81,13 +81,11 @@ public class DBConnection {
     public void insertVip(String name, String nic){
         vip.setFullname(name);
         vip.setIdNumber(nic);
-        vip.setCardNumber(12);
         
         for(int i = 0; i<5; i++){
             imageCondtions(i, vip);
         }
         
-        System.out.println("loop finish");
         session.save(vip);
         commitAndClose();
         vip = null;
