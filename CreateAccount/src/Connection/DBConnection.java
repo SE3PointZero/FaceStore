@@ -2,9 +2,14 @@ package Connection;
 
 import java.sql.Blob;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -94,9 +99,19 @@ public class DBConnection {
         vip = null;
     }
     
-    public void retrieveVip(String id){
+    public void retrieveVipOnProject(int id){
         vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
         Blob image = vip.getImage1();
+        try {
+            InputStream inputStream = image.getBinaryStream();
+            try {
+                Files.copy(inputStream, Paths.get("ImageCache/1.jpeg"), StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException ex) {
+                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public byte[] getImage(String imagePath){//To get the image from the project to store on the database

@@ -1,11 +1,13 @@
 package createaccount;
 
+import java.sql.Blob;
 import javax.swing.JOptionPane;
 
 public class VIPInformation extends javax.swing.JFrame {
 
     public VIPInformation() {
         initComponents();
+        
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
         this.setSize(objFull.getWidth(),objFull.getHeight());
@@ -239,7 +241,9 @@ public class VIPInformation extends javax.swing.JFrame {
     }//GEN-LAST:event_categoryActionPerformed
 
     public void details(){
-
+        Connection.DBConnection conn = new Connection.DBConnection();
+        conn.retrieveVipOnProject(1);
+        System.out.println("Retrieved");
     }
     
     public static void main(String args[]) {

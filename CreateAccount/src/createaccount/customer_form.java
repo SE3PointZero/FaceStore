@@ -259,8 +259,8 @@ public class customer_form extends javax.swing.JFrame  {
         captureCount = 0; 
         
         this.setVisible(false);
-        createaccount.VIPInformation vipInfo = new createaccount.VIPInformation();
-        vipInfo.setVisible(true);
+        createaccount.FaceRecognition face = new createaccount.FaceRecognition();
+        face.setVisible(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
