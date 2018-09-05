@@ -6,14 +6,16 @@ import org.opencv.core.Core;
 public class customer_form extends javax.swing.JFrame  {
     
     public static int captureCount = 0;
-    String[] path = new String[5]; 
+    String[] pathArray = new String[5]; 
+    
+    VisualBox.Camera cameraObj = new VisualBox.Camera();
     
     public customer_form() {
         initComponents();
         
-        VisualBox.Camera cameraObj = new VisualBox.Camera();
         cameraObj.setPanel(jPanel1);
         cameraObj.cameraOn();
+        
         Classes.FullScreen objFull = new Classes.FullScreen();
         objFull.SetResolution();
         this.setSize(objFull.getWidth(),objFull.getHeight());
@@ -69,7 +71,7 @@ public class customer_form extends javax.swing.JFrame  {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 439, Short.MAX_VALUE)
         );
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
@@ -107,8 +109,8 @@ public class customer_form extends javax.swing.JFrame  {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(countSnap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -255,21 +257,24 @@ public class customer_form extends javax.swing.JFrame  {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+
         String name = fullName.getText();
         String nic = NIC.getText();
         String vCard = card.getText();
-        int Card = Integer.parseInt(vCard);
-
+        int cardNumber = Integer.parseInt(card.getText());
+        
         Connection.DBConnection conn = new Connection.DBConnection();
-        conn.setArray(path);
-        conn.insertVip(name, nic, Card);
-         
-        JOptionPane.showMessageDialog(null, "Informations succesfully stored");
+
+        conn.setArray(pathArray);
+        conn.insertVip(name, nic, cardNumber);
+
+        JOptionPane.showMessageDialog(null, "Finalize your informations...........Please click save button to store your informations");
         captureCount = 0; 
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
         VisualBox.SnapShot objSnapShot = new VisualBox.SnapShot();
+
         if((fullName.getText().trim().length() == 0 || fullName.getText().equals(null)) || (NIC.getText().trim().length() == 0 || NIC.getText().equals(null)) || (card.getText().trim().length() == 0 || card.getText().equals(null))){
             JOptionPane.showMessageDialog(null, "Please fill the required fields on the left side to capture your image", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{            
@@ -290,7 +295,7 @@ public class customer_form extends javax.swing.JFrame  {
 
     public void savePathArray(String location){
         try{
-            path[captureCount] = location;
+            pathArray[captureCount] = location;
         }catch(ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
         }
