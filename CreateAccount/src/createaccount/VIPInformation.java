@@ -99,6 +99,8 @@ public class VIPInformation extends javax.swing.JFrame {
         jLabel9.setText("Members");
 
         fullName.setEditable(false);
+        fullName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fullName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fullName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fullNameActionPerformed(evt);
@@ -106,10 +108,16 @@ public class VIPInformation extends javax.swing.JFrame {
         });
 
         hotelId.setEditable(false);
+        hotelId.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        hotelId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         waiter.setEditable(false);
+        waiter.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        waiter.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         table.setEditable(false);
+        table.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        table.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         category.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Platinum", "Gold", "Silver" }));
@@ -132,6 +140,8 @@ public class VIPInformation extends javax.swing.JFrame {
         });
 
         NIC1.setEditable(false);
+        NIC1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        NIC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton1.setText("Home");
@@ -243,8 +253,11 @@ public class VIPInformation extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void details(){
-        Connection.DBConnection conn = new Connection.DBConnection();
-        conn.retrieveVipOnProject(1);
+        //Connection.DBConnection conn = new Connection.DBConnection();
+        //conn.retrieveVipOnProject(1);
+        
+        Classes.GenerateTableNum tableObj = new Classes.GenerateTableNum();
+        table.setText(String.valueOf(tableObj.getTableNumber()));
     }
     
     public static void main(String args[]) {
