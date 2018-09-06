@@ -57,20 +57,12 @@ public class DBConnection {
     //Login Object functions
     private static final int id = 1;
     
-    public String retrieveLoginName(){ 
+    public Object retrieveLogin(){ 
         login = (pojoClass.Login)session.get(pojoClass.Login.class,id);
         String name = login.getUser_Name();
-        commitAndClose();
-        login = null;
-        return name;
-    }
-
-    public String retrieveLoginPassword(){ 
-        login = (pojoClass.Login)session.get(pojoClass.Login.class,id);
         String password = login.getUser_Password();
         commitAndClose();
-        login = null;
-        return password;
+        return login;
     }
     
     //PasswordChanging

@@ -110,10 +110,11 @@ public class Login extends javax.swing.JFrame {
         
         String username = userName.getText();
         String pass = password.getText();
-        
+
         Connection.DBConnection conn = new Connection.DBConnection();
+        pojoClass.Login obj = (pojoClass.Login) conn.retrieveLogin();
         
-        if(username.equals(conn.retrieveLoginName())){
+        if(username.equals(obj.getUser_Name()) && pass.equals(obj.getUser_Password())){
             this.setVisible(false);
             createaccount.Welcome welcome = new createaccount.Welcome();
             welcome.setVisible(true);
