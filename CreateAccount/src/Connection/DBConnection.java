@@ -64,14 +64,16 @@ public class DBConnection {
         commitAndClose();
         return login;
     }
-    
-    //PasswordChanging
+
     public void updateLoginInfo(String name, String password){
-        pojoClass.Login loginUpdate = new pojoClass.Login(name, password);
-        session.update(loginUpdate);
+        login = (pojoClass.Login)session.get(pojoClass.Login.class,id);
+        login.setUser_Name(name);
+        login.setUser_Password(password);
+        session.update(login);
         commitAndClose();
+        login = null;
     }
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Vip Object functions
     public void insertVip(String name, String nic){

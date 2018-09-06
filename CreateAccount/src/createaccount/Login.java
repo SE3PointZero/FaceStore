@@ -120,6 +120,8 @@ public class Login extends javax.swing.JFrame {
             welcome.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Sorry user name or password is incorrect");
+            userName.setText("");
+            password.setText("");
         }
     }//GEN-LAST:event_loginActionPerformed
 

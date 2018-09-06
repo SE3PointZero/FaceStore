@@ -56,6 +56,8 @@ public class PasswordChanging extends javax.swing.JFrame {
         jLabel4.setText("Confirm Password");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(640, 590, 330, 43);
+
+        newUserName.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         getContentPane().add(newUserName);
         newUserName.setBounds(990, 430, 440, 50);
 
@@ -123,7 +125,6 @@ public class PasswordChanging extends javax.swing.JFrame {
             }  
         }else{
             JOptionPane.showMessageDialog(null, "Passwords are not matching. Please make sure that both of the password fields are entered correctly");
-            newUserName.setText("");
             newPassword.setText("");
             confirmPassword.setText("");
         }
