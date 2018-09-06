@@ -1,5 +1,7 @@
 package createaccount;
 
+import javax.swing.JOptionPane;
+
 public class VIPInformation extends javax.swing.JFrame {
 
     public VIPInformation() {
@@ -18,6 +20,7 @@ public class VIPInformation extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        dp = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -47,11 +50,11 @@ public class VIPInformation extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 586, Short.MAX_VALUE)
+            .addComponent(dp, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addComponent(dp, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -237,7 +240,11 @@ public class VIPInformation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        
+        int decision = JOptionPane.showConfirmDialog(null, "Are you sure do you want to finalize?", "Warning", JOptionPane.YES_NO_OPTION);
+        if(decision == 0){
+            JOptionPane.showMessageDialog(null, "have a nice meal!");
+            home();
+        }
     }//GEN-LAST:event_button1ActionPerformed
 
     private void fullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullNameActionPerformed
@@ -249,12 +256,22 @@ public class VIPInformation extends javax.swing.JFrame {
     }//GEN-LAST:event_categoryActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int decision = JOptionPane.showConfirmDialog(null, "Are you sure do you want to skip?", "Warning", JOptionPane.YES_NO_OPTION);
+        if(decision == 0){
+            home();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void home(){
+        this.setVisible(false);
+        createaccount.Welcome welcome = new createaccount.Welcome();
+        welcome.setVisible(true);
+    }
+    
     public void details(){
-        //Connection.DBConnection conn = new Connection.DBConnection();
-        //conn.retrieveVipOnProject(1);
+        
+        Connection.DBConnection conn = new Connection.DBConnection();
+        dp.setIcon(conn.retrieveVipOnProject(dp.getWidth(), dp.getHeight()));
         
         Classes.GenerateTableNum tableObj = new Classes.GenerateTableNum();
         table.setText(String.valueOf(tableObj.getTableNumber()));
@@ -276,6 +293,7 @@ public class VIPInformation extends javax.swing.JFrame {
     private javax.swing.JTextField NIC1;
     private java.awt.Button button1;
     private javax.swing.JComboBox<String> category;
+    private javax.swing.JLabel dp;
     private javax.swing.JTextField fullName;
     private javax.swing.JTextField hotelId;
     private javax.swing.JButton jButton1;

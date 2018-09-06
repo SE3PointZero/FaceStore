@@ -1,5 +1,6 @@
 package Connection;
 
+import java.awt.Image;
 import java.sql.Blob;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +11,7 @@ import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -59,8 +61,6 @@ public class DBConnection {
     
     public Object retrieveLogin(){ 
         login = (pojoClass.Login)session.get(pojoClass.Login.class,id);
-        String name = login.getUser_Name();
-        String password = login.getUser_Password();
         commitAndClose();
         return login;
     }
@@ -96,8 +96,9 @@ public class DBConnection {
         vip = null;
     }
     
-    public void retrieveVipOnProject(int id){
+    public ImageIcon retrieveVipOnProject(int width, int height){
         vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
+        
         Blob image = vip.getImage1();
         try {
             InputStream inputStream = image.getBinaryStream();
@@ -109,6 +110,12 @@ public class DBConnection {
         } catch (SQLException ex) {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        ImageIcon img = new ImageIcon("ImageCache/1.jpeg");
+        Image photo = img.getImage();
+        Image newPhoto = photo.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon profile = new ImageIcon(newPhoto);
+        return profile;
     }
     
     public byte[] getImage(String imagePath){//To get the image from the project to store on the database
