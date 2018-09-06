@@ -90,6 +90,7 @@ public class DBConnection {
     }
     
     public void deleteVip(int id){
+        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
         session.delete(vip);
         commitAndClose();
         vip = null;
