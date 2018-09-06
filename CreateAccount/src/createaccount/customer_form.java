@@ -129,7 +129,7 @@ public class customer_form extends javax.swing.JFrame  {
                 btnCancelActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 810, 180, 50));
+        jPanel2.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 840, 180, 50));
 
         btnCapture.setBackground(new java.awt.Color(255, 255, 255));
         btnCapture.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -140,7 +140,7 @@ public class customer_form extends javax.swing.JFrame  {
                 btnCaptureActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCapture, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 810, 180, 50));
+        jPanel2.add(btnCapture, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 840, 180, 50));
 
         btnSave.setBackground(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -151,7 +151,7 @@ public class customer_form extends javax.swing.JFrame  {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 810, 180, 50));
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 840, 180, 50));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setMaximumSize(null);
@@ -246,6 +246,9 @@ public class customer_form extends javax.swing.JFrame  {
 
         conn.setArray(pathArray);
         conn.insertVip(name, nic);
+        
+        Classes.DeleteCapturedImages del = new Classes.DeleteCapturedImages();
+        del.deletePicOnProject();
 
         JOptionPane.showMessageDialog(null, "Your informations stored successfully");
         captureCount = 0; 
