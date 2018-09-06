@@ -6,9 +6,9 @@ public class PasswordChanging extends javax.swing.JFrame {
 
     public PasswordChanging() {
         initComponents();
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
     
     public void home(){
@@ -32,34 +32,42 @@ public class PasswordChanging extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1480, 920));
+        setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("New User Name");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(450, 260, 210, 29);
+        jLabel2.setBounds(630, 430, 310, 43);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("New Password");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(450, 320, 170, 29);
+        jLabel3.setBounds(640, 510, 270, 43);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Confirm Password");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(450, 380, 220, 29);
+        jLabel4.setBounds(640, 590, 330, 43);
         getContentPane().add(newUserName);
-        newUserName.setBounds(710, 260, 250, 30);
+        newUserName.setBounds(990, 430, 440, 50);
 
         newPassword.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         getContentPane().add(newPassword);
-        newPassword.setBounds(710, 320, 250, 30);
+        newPassword.setBounds(990, 510, 440, 50);
 
         confirmPassword.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         getContentPane().add(confirmPassword);
-        confirmPassword.setBounds(710, 380, 250, 30);
+        confirmPassword.setBounds(990, 590, 440, 50);
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,9 +75,9 @@ public class PasswordChanging extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(720, 460, 110, 35);
+        jButton1.setBounds(1050, 710, 140, 60);
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,11 +85,11 @@ public class PasswordChanging extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(570, 460, 100, 35);
+        jButton2.setBounds(820, 710, 140, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/createaccount/image/WelcomePage.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/createaccount/image/Welcome.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1000, 540);
+        jLabel1.setBounds(0, 0, 1480, 920);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,7 +136,7 @@ public class PasswordChanging extends javax.swing.JFrame {
                 PasswordChanging objPassword = new PasswordChanging();
                 objPassword.setVisible(true);
 //                objPassword.setAlwaysOnTop(true);
-                objPassword.setResizable(false);
+//                objPassword.setResizable(false);
             }
         });
     }

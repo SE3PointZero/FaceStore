@@ -6,9 +6,9 @@ public class Welcome extends javax.swing.JFrame {
 
     public Welcome() {
         initComponents();
-        Classes.FullScreen objFull = new Classes.FullScreen();
-        objFull.SetResolution();
-        this.setSize(objFull.getWidth(),objFull.getHeight());
+//        Classes.FullScreen objFull = new Classes.FullScreen();
+//        objFull.SetResolution();
+//        this.setSize(objFull.getWidth(),objFull.getHeight());
     }
 
     @SuppressWarnings("unchecked")
@@ -22,9 +22,11 @@ public class Welcome extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1480, 920));
+        setResizable(false);
         getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Arial Black", 1, 30)); // NOI18N
         jButton1.setText("Turn on Face Recognition");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -32,9 +34,9 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(480, 230, 400, 40);
+        jButton1.setBounds(720, 440, 550, 60);
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Arial Black", 1, 30)); // NOI18N
         jButton2.setText("Updates");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,9 +44,9 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(480, 370, 160, 40);
+        jButton2.setBounds(720, 620, 550, 60);
 
-        jButton3.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Arial Black", 1, 30)); // NOI18N
         jButton3.setText("Change Password");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,9 +54,9 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(480, 300, 290, 40);
+        jButton3.setBounds(720, 530, 550, 60);
 
-        jButton4.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Arial Black", 1, 30)); // NOI18N
         jButton4.setText("Logout");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,11 +64,11 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(480, 440, 160, 40);
+        jButton4.setBounds(720, 710, 550, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/createaccount/image/WelcomePage.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/createaccount/image/Welcome.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1000, 540);
+        jLabel1.setBounds(0, 0, 1480, 920);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -103,7 +105,7 @@ public class Welcome extends javax.swing.JFrame {
                 Welcome objWelcome = new Welcome();
                 objWelcome.setVisible(true);
 //                objWelcome.setAlwaysOnTop(true);
-                objWelcome.setResizable(false);
+//                objWelcome.setResizable(false);
             }
         });
     }
