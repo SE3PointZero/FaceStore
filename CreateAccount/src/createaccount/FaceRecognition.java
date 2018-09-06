@@ -4,7 +4,9 @@ import org.opencv.core.Core;
 
 public class FaceRecognition extends javax.swing.JFrame {
     
-    public FaceRecognition() {       
+    public FaceRecognition() { 
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        
         initComponents();
         
         VisualBox.Camera cameraObj = new VisualBox.Camera();
@@ -101,7 +103,6 @@ public class FaceRecognition extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         java.awt.EventQueue.invokeLater(new Runnable() {
             
             public void run() {
