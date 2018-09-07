@@ -17,4 +17,9 @@ public class DeleteCapturedImages {
             file.delete();
         }
     }
+    
+    public void deleteImageCache(){
+        file = new File("ImageCache/1.jpeg");
+        file.delete();
+    }
 }

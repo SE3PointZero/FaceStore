@@ -9,9 +9,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -55,6 +59,17 @@ public class DBConnection {
         return emp.getEmFullname();
     }
     
+    public List retrieveIdColumn(){
+        List<Integer> empId = new ArrayList<Integer>();
+        Query qry = session.createSQLQuery("select e.id from employee e");
+        List idList = qry.list();
+        Iterator itr = idList.iterator();
+        while(itr.hasNext()){
+            int ids = (int)itr.next();
+            empId.add(ids);
+        }
+        return empId;
+    }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Login Object functions
     private static final int id = 1;
@@ -73,7 +88,6 @@ public class DBConnection {
         commitAndClose();
         login = null;
     }
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Vip Object functions
     public void insertVip(String name, String nic){
@@ -96,10 +110,18 @@ public class DBConnection {
         vip = null;
     }
     
-    public ImageIcon retrieveVipOnProject(int width, int height){
-        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
+    public Object retrieveVipInfo(int num){
+        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, num);
+        commitAndClose();
+        return vip;
+    }
+    
+    public ImageIcon retrieveVipOnProject(int num, int width, int height){
+        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, num);
         
         Blob image = vip.getImage1();
+        vip = null;
+        
         try {
             InputStream inputStream = image.getBinaryStream();
             try {

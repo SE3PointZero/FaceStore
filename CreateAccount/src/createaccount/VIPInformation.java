@@ -270,11 +270,29 @@ public class VIPInformation extends javax.swing.JFrame {
     
     public void details(){
         
+        int identifiedVip = 1;
+        
         Connection.DBConnection conn = new Connection.DBConnection();
-        dp.setIcon(conn.retrieveVipOnProject(dp.getWidth(), dp.getHeight()));
+        dp.setIcon(conn.retrieveVipOnProject(identifiedVip, dp.getWidth(), dp.getHeight()));
+        
+        pojoClass.VipInfo vipInfo = (pojoClass.VipInfo)conn.retrieveVipInfo(identifiedVip);
+        fullName.setText(vipInfo.getFullname());
+        NIC1.setText(vipInfo.getIdNumber());
+        hotelId.setText(String.valueOf(vipInfo.getId()));
+        
+        Classes.GenerateWaiterNum waiterObj = new Classes.GenerateWaiterNum();
+        waiter.setText(String.valueOf(waiterObj.getWaiterNum()));
         
         Classes.GenerateTableNum tableObj = new Classes.GenerateTableNum();
         table.setText(String.valueOf(tableObj.getTableNumber()));
+        
+        Classes.DeleteCapturedImages delImg = new Classes.DeleteCapturedImages();
+        delImg.deleteImageCache();
+    }
+    
+    public void futureUse(){//This method will use when billing and it is a part of a hotel management system
+        String categoryPackage = category.getSelectedItem().toString();
+        String totalMembers = members.getSelectedItem().toString();
     }
     
     public static void main(String args[]) {
