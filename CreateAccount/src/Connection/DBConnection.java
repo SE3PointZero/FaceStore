@@ -70,6 +70,11 @@ public class DBConnection {
         }
         return empId;
     }
+        public String retrieveEmpNIC(String nic){
+        emp = (pojoClass.Employee)session.get(pojoClass.Employee.class, nic);
+        commitAndClose();
+        return emp.getEmNic();
+       }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Login Object functions
     private static final int id = 1;
@@ -115,6 +120,16 @@ public class DBConnection {
         commitAndClose();
         return vip;
     }
+    public String retrieveVip(int id){
+        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, id);
+        commitAndClose();
+        return vip.getFullname();
+    }
+      public String retrieveVipNIC(String nic){
+        vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, nic);
+        commitAndClose();
+        return vip.getIdNumber();
+       }
     
     public ImageIcon retrieveVipOnProject(int num, int width, int height){
         vip = (pojoClass.VipInfo)session.get(pojoClass.VipInfo.class, num);

@@ -292,10 +292,17 @@ public class Updates extends javax.swing.JFrame {
         String name = labourName.getText();
         String nic = labourNic.getText();
         Connection.DBConnection emp = new Connection.DBConnection();
+                if((nic.length() != 9|| (!nic.endsWith("X")&&!nic.endsWith("V")))){
+            JOptionPane.showMessageDialog(null,"Invalid NIC Number");
+               if(labourNic.equals(emp.retrieveEmpNIC(nic))) { 
+                   JOptionPane.showMessageDialog(null,"The Details already uploaded");
+                }else{
         emp.insertEmp(name, nic);
         JOptionPane.showMessageDialog(null, "Data inserted successfully");
         labourName.setText("");
         labourNic.setText("");
+               }
+               }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -304,10 +311,16 @@ public class Updates extends javax.swing.JFrame {
         int decision = JOptionPane.showConfirmDialog(null,"Do you want to remove?", "Confirmation",JOptionPane.YES_NO_OPTION);
         if(decision == 0){
             Connection.DBConnection conn = new Connection.DBConnection();
-            conn.deleteVip(id);
+               if(!removeVIP.equals(conn.retrieveVip(id))){
+               JOptionPane.showMessageDialog(null,"The VIP Details Already remove from List");
+             } else{
+                   conn.deleteVip(id);
             JOptionPane.showMessageDialog(null, "Succesfully deleted");
             removeVIP.setText("");
+               }
         }else{
+            createaccount.Updates ups = new createaccount.Updates();
+            ups.setVisible(true);
             removeVIP.setText("");
         }
         
@@ -318,10 +331,17 @@ public class Updates extends javax.swing.JFrame {
         int decision = JOptionPane.showConfirmDialog(null,"Do you want to remove?", "Confirmation",JOptionPane.YES_NO_OPTION);
         if(decision == 0){
             Connection.DBConnection conn = new Connection.DBConnection();
-            conn.deleteEmp(id);
-            JOptionPane.showMessageDialog(null, "Succesfully deleted");
-            removeLabour.setText("");
+        if(!removeLabour.equals(conn.retrieveEmp(id))) {
+                JOptionPane.showMessageDialog(null,"The Employee Details Already remove from list");
+          } else {
+                conn.deleteEmp(id);
+                JOptionPane.showMessageDialog(null, "Succesfully deleted");
+                removeLabour.setText("");
+            
+                }
         }else{
+            createaccount.Updates update = new createaccount.Updates();
+            update.setVisible(true);
             removeLabour.setText("");
         }
     }//GEN-LAST:event_jButton4ActionPerformed

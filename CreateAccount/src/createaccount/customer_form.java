@@ -243,7 +243,14 @@ public class customer_form extends javax.swing.JFrame  {
         String nic = NIC.getText();
 
         Connection.DBConnection conn = new Connection.DBConnection();
-
+        if(NIC.equals(conn.retrieveVipNIC(nic))){
+         JOptionPane.showMessageDialog(null,"The Customer Details already added so Check the NIC number....");
+        }
+        else{
+            if((nic.length() != 9|| (!nic.endsWith("X")&&!nic.endsWith("V")))){
+            JOptionPane.showMessageDialog(null,"Invalid NIC Number"); 
+        }
+            else{
         conn.setArray(pathArray);
         conn.insertVip(name, nic);
         
@@ -256,6 +263,9 @@ public class customer_form extends javax.swing.JFrame  {
         this.setVisible(false);
         createaccount.FaceRecognition face = new createaccount.FaceRecognition();
         face.setVisible(true);
+            }
+        }
+            
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaptureActionPerformed
